@@ -2,4 +2,22 @@
   border-style: solid;
   border-width: medium;
   border-color: black;
+  height: 30em;
+  width: 30em;
+  margin: 0 auto 0 auto;
+  margin-top: 5em;
+  background-color: #F0B487;
+  border-radius: 0.5em;
+}
+
+body {
+  background-color: grey;
+}
+
+.innerDiv {
+  background-color: #264B39;
+  height: 25em;
+  width: 25em;
+  margin: 0 auto 0 auto;
+  margin-top: 2.5em;
 }
