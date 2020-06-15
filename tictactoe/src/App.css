@@ -36,3 +36,60 @@
     transform: rotate(360deg);
   }
 }
+
+.mainDiv {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  height: 40em;
+  width: 40em;
+  margin: 0 auto 0 auto;
+  margin-top: 3em;
+  background-color: #F0B487;
+  border-radius: 0.5em;
+}
+
+.innerDiv {
+  background-color: #264B39;
+  height: 35em;
+  width: 35em;
+  margin: 0 auto 0 auto;
+  margin-top: 2.5em;
+  color: white;
+  padding-top: 0.01em;
+}
+
+.choosePlayers {
+  color: white;
+  margin-top: 10em;
+}
+
+.onePlayer:hover {
+  border-style: dashed;
+  border-width: medium;
+  border-color: white;
+  border-radius: 0.5em;
+  padding: 0.25em 0.25em;
+}
+
+.twoPlayers:hover {
+  border-style: dashed;
+  border-width: medium;
+  border-color: white;
+  border-radius: 0.5em;
+  padding: 0.25em 0.25em;
+}
+
+.onePdiv {
+  width: 80%;
+  margin: 0 auto 0 auto;
+}
+
+.twoPdiv {
+  width: 80%;
+  margin: 0 auto 0 auto;
+}
+
+.playerDivs {
+  margin-top: 3em;
+}
