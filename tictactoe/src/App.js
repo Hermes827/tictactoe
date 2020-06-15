@@ -17,6 +17,7 @@ class App extends React.Component {
     }
     this.chooseNumberOfPlayers = this.chooseNumberOfPlayers.bind(this)
     this.chooseXorO = this.chooseXorO.bind(this)
+    this.resetAll = this.resetAll.bind(this)
   }
 
   renderChoosePlayers(){
@@ -49,18 +50,26 @@ class App extends React.Component {
 
   renderGrid(){
     if(this.state.toggleGrid === true){
-      return <Grid/>
+      return <Grid reset={this.resetAll}/>
     }
+  }
+
+  resetAll(){
+    console.log("hello")
+    this.setState({
+      toggleGrid: false,
+      hasChosenMode: false
+    })
   }
 
   render(){
   return (
     <div className="App">
+      {this.renderGrid()}
     <div className="mainDiv">
     <div className="innerDiv">
       {this.renderChoosePlayers()}
       {this.renderChooseXorO()}
-      {this.renderGrid()}
     </div>
     </div>
     </div>
