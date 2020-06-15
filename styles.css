@@ -2,10 +2,10 @@
   border-style: solid;
   border-width: medium;
   border-color: black;
-  height: 30em;
-  width: 30em;
+  height: 40em;
+  width: 40em;
   margin: 0 auto 0 auto;
-  margin-top: 5em;
+  margin-top: 3em;
   background-color: #F0B487;
   border-radius: 0.5em;
 }
@@ -16,8 +16,24 @@ body {
 
 .innerDiv {
   background-color: #264B39;
-  height: 25em;
-  width: 25em;
+  height: 35em;
+  width: 35em;
   margin: 0 auto 0 auto;
   margin-top: 2.5em;
+  color: white;
+}
+
+.header {
+  text-align: center;
+  padding-top: 5em;
+}
+
+.one {
+  float: left;
+  margin-left: 8em;;
+}
+
+.two {
+  float: left;
+  margin-left: 1em;
 }
