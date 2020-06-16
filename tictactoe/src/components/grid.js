@@ -19,6 +19,9 @@ class Grid extends React.Component {
   //     computerScore: 0
   //   })
   // }
+  hello(){
+    console.log(this)
+  }
 
   render(){
   return (
@@ -28,7 +31,7 @@ class Grid extends React.Component {
     <div className="resetBanner" onClick={this.props.reset}>Reset All</div>
     <div className="gridInnerDiv">
     <div className="gridDiv">
-    <div className="grid"></div>
+    <div className="grid" id=1 onClick={this.hello}></div>
     <div className="grid"></div>
     <div className="grid"></div>
     <div className="grid"></div>
