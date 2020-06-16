@@ -170,6 +170,10 @@
   float:left;
   margin-left: 5em;
   padding-top: 0.5em;
+  border-radius: 0.5em;
+  margin-top: 0.25em;
+  width: 6em;
+  padding-bottom: 0.5em;
 }
 
 .computerBanner {
@@ -177,6 +181,10 @@
   float:left;
   margin-left: 5em;
   padding-top: 0.5em;
+  border-radius: 0.5em;
+  margin-top: 0.25em;
+  width: 6em;
+  padding-bottom: 0.5em;
 }
 
 .resetBanner {

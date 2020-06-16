@@ -27,8 +27,11 @@ class Grid extends React.Component {
   //   })
   // }
   componentDidMount(){
+    this.firstPlayer()
+  }
+
+  firstPlayer(){
     let random = Math.floor(Math.random()*11)
-    // console.log(random)
     if(random <= 5){
       this.setState({
         currentPlayer: true
@@ -41,8 +44,7 @@ class Grid extends React.Component {
   }
 
   clickedCell(e){ //player turn
-    if(this.state.playerCellClicks.length === 20 || this.state.currentPlayer === false){return}
-
+    if(this.state.currentPlayer === false){return}
     let cell = e.target
     if(cell.innerHTML === "X" || cell.innerHTML === "O"){return}
     cell.innerHTML = "X"
@@ -51,19 +53,21 @@ class Grid extends React.Component {
       currentPlayer: false,
       currentComputer: true
     })
+    // this.isWinner()
+    //this function doesnt work because the state updates an item late because it
+    //doesnt immediately catch the first item
   }
 
   computerTurn(){
     setTimeout(() => {
-    if(this.state.currentComputer === false || this.state.computerCellClicks.length === 20){return}
+    if(this.state.currentComputer === false){return}
     console.log("im the computer")
-    // let cell = e.target
     let random = Math.floor(Math.random()*(9))
     const divArr = document.querySelectorAll("div.grid")
     if(divArr[random].innerHTML === "X" || divArr[random].innerHTML === "O"){
       this.computerTurn()
     } else {
-    divArr[random].innerHTML = "O"
+    // divArr[random].innerHTML = "O"
     this.setState({
       computerCellClicks: [...this.state.computerCellClicks, parseInt(divArr[random].id)],
       currentComputer: false,
@@ -74,17 +78,33 @@ class Grid extends React.Component {
   }
   //used arrow function for setTimeout, otherwise it causes scoping problems and makes the program crash
 
-  isWinner(){
-    console.log("whos the winner?")
+  componentDidUpdate(){
     if(this.state.playerCellClicks.length === 3){
-      for(let i=0;i<=winningCombinations.length;i++){
+      for(let i=0;i< winningCombinations.length;i++){
         if(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(winningCombinations[i])){
-          console.log("winner")
-          console.log(this.state.playerCellClicks)
+          setTimeout(()=>{
+          alert(`WINNER!`)
+          this.setState({
+            currentPlayer: false,
+            currentComputer: false,
+            playerCellClicks: []
+          })
+          if(window.confirm("Do you want to play again?")){
+            const divArr = document.querySelectorAll("div.grid")
+            for(let i=0;i< divArr.length;i++){
+              divArr[i].innerHTML = ""
+            }
+            this.firstPlayer()
+          } else {
+            this.props.reset()
+          }
+        }, 500)
         }
       }
     }
-    }
+  }
+  //finally fixed the infinite loop problem, have to clear out this.state.playcellclicks first in setstate
+  //without this the conditions for the setstate continue
 
   render(){
   return (
@@ -105,13 +125,11 @@ class Grid extends React.Component {
     <div className="grid" id="9" onClick={this.clickedCell}></div>
     </div>
     </div>
-    {this.isWinner()}
     {this.computerTurn()}
+
     </div>
   );
 }
 }
 
 export default Grid;
-
-  // {this.computerTurn()}
