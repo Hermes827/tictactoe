@@ -11,7 +11,9 @@ class Grid extends React.Component {
       computerScore: 0,
       playerCellClicks: [],
       computerCellClicks: [],
-      cellContent: ""
+      cellContent: "",
+      currentPlayer: false,
+      currentComputer: false
     }
     this.clickedCell = this.clickedCell.bind(this)
   }
@@ -23,26 +25,74 @@ class Grid extends React.Component {
   //     computerScore: 0
   //   })
   // }
-  clickedCell(e){
-    let cell = e.target
-    if(this.state.playerCellClicks.length === 3){return}
-    this.setState({
-      playerCellClicks: [...this.state.playerCellClicks, parseInt(cell.id)]
-    })
-    cell.innerHTML = "X"
+  componentDidMount(){
+    let random = Math.floor(Math.random()*11)
+    console.log(random)
+    if(random <= 5){
+      this.setState({
+        currentPlayer: true
+      })
+    } else {
+      this.setState({
+        currentComputer: true
+      })
+    }
   }
+
+  clickedCell(e){
+    if(this.state.playerCellClicks.length === 20 || this.state.currentPlayer === false){return}
+    let cell = e.target
+    if(cell.innerHTML === "X" || cell.innerHTML === "O"){return}
+    cell.innerHTML = "X"
+    this.setState({
+      playerCellClicks: [...this.state.playerCellClicks, parseInt(cell.id)],
+      currentPlayer: false,
+      currentComputer: true
+    })
+  }
+
+  computerTurn(){
+    setTimeout(() => {
+    if(this.state.currentComputer === false || this.state.computerCellClicks.length === 20){return}
+    console.log("hello")
+    // let cell = e.target
+    let random = Math.floor(Math.random()*10)
+    const divArr = document.querySelectorAll("div.grid")
+    if(divArr[random].innerHTML === "X" || divArr[random].innerHTML === "O"){
+      this.computerTurn()
+    } else {
+    divArr[random].innerHTML = "O"
+    this.setState({
+      computerCellClicks: [...this.state.computerCellClicks, parseInt(divArr[random].id)],
+      currentComputer: false,
+      currentPlayer: true
+    })
+    }
+    }, 1000)
+  }
+  //used arrow function for setTimeout, otherwise it causes scoping problems and makes the program crash
 
   isWinner(){
     if(this.state.playerCellClicks.length === 3){
       for(let i=0;i<=winningCombinations.length;i++){
         if(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(winningCombinations[i])){
           console.log("winner")
+          console.log(this.state.playerCellClicks)
         }
       }
     }
     }
 
+    // displayDivArr(){
+    //   let random = Math.floor(Math.random()*10)
+    //   const divArr = document.querySelectorAll("div.grid")
+    //   if(divArr.length > 0){
+    //     console.log(divArr[random].id)
+    //   }
+    // }
+
   render(){
+
   return (
     <div className="gridMainDiv">
     <div className="p1Banner">{this.state.playerScore} Player 1</div>
@@ -62,6 +112,7 @@ class Grid extends React.Component {
     </div>
     </div>
     {this.isWinner()}
+    {this.computerTurn()}
     </div>
   );
 }
