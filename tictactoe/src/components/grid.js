@@ -1,5 +1,6 @@
 import React from 'react';
 const winningCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
+let counter = 0;
 
 class Grid extends React.Component {
 
@@ -27,7 +28,7 @@ class Grid extends React.Component {
   // }
   componentDidMount(){
     let random = Math.floor(Math.random()*11)
-    console.log(random)
+    // console.log(random)
     if(random <= 5){
       this.setState({
         currentPlayer: true
@@ -39,8 +40,9 @@ class Grid extends React.Component {
     }
   }
 
-  clickedCell(e){
+  clickedCell(e){ //player turn
     if(this.state.playerCellClicks.length === 20 || this.state.currentPlayer === false){return}
+
     let cell = e.target
     if(cell.innerHTML === "X" || cell.innerHTML === "O"){return}
     cell.innerHTML = "X"
@@ -54,9 +56,9 @@ class Grid extends React.Component {
   computerTurn(){
     setTimeout(() => {
     if(this.state.currentComputer === false || this.state.computerCellClicks.length === 20){return}
-    console.log("hello")
+    console.log("im the computer")
     // let cell = e.target
-    let random = Math.floor(Math.random()*10)
+    let random = Math.floor(Math.random()*(9))
     const divArr = document.querySelectorAll("div.grid")
     if(divArr[random].innerHTML === "X" || divArr[random].innerHTML === "O"){
       this.computerTurn()
@@ -73,6 +75,7 @@ class Grid extends React.Component {
   //used arrow function for setTimeout, otherwise it causes scoping problems and makes the program crash
 
   isWinner(){
+    console.log("whos the winner?")
     if(this.state.playerCellClicks.length === 3){
       for(let i=0;i<=winningCombinations.length;i++){
         if(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(winningCombinations[i])){
@@ -83,20 +86,11 @@ class Grid extends React.Component {
     }
     }
 
-    // displayDivArr(){
-    //   let random = Math.floor(Math.random()*10)
-    //   const divArr = document.querySelectorAll("div.grid")
-    //   if(divArr.length > 0){
-    //     console.log(divArr[random].id)
-    //   }
-    // }
-
   render(){
-
   return (
     <div className="gridMainDiv">
-    <div className="p1Banner">{this.state.playerScore} Player 1</div>
-    <div className="computerBanner">{this.state.computerScore} Computer</div>
+    <div className={`p1Banner ${this.state.currentPlayer === true ? "p1BannerActive" : ""}`}>{this.state.playerScore} Player 1</div>
+    <div className={`computerBanner ${this.state.currentComputer === true ? "computerBannerActive" : ""}`}>{this.state.computerScore} Computer</div>
     <div className="resetBanner" onClick={this.props.reset}>Reset All</div>
     <div className="gridInnerDiv">
     <div className="gridDiv">
@@ -119,3 +113,5 @@ class Grid extends React.Component {
 }
 
 export default Grid;
+
+  // {this.computerTurn()}

@@ -185,3 +185,11 @@
   margin-right: 5em;
   padding-top: 0.5em;
 }
+
+.p1BannerActive {
+  background-color: blue;
+}
+
+.computerBannerActive {
+  background-color: blue;
+}
