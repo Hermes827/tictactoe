@@ -27,7 +27,6 @@ class App extends React.Component {
   }
 
   chooseNumberOfPlayers(){
-    console.log("hi")
     this.setState({
       hasChosenMode: true,
       hasChosenXorO: true
@@ -41,7 +40,6 @@ class App extends React.Component {
   }
 
   chooseXorO(){
-    console.log("hi")
     this.setState({
       hasChosenXorO: false,
       toggleGrid: true
