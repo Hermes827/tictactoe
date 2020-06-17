@@ -53,15 +53,17 @@ class Grid extends React.Component {
       currentPlayer: false,
       currentComputer: true
     })
+    // console.log(this.state.playerCellClicks)
     // this.isWinner()
     //this function doesnt work because the state updates an item late because it
     //doesnt immediately catch the first item
   }
 
   computerTurn(){
+    console.log("my turn")
     setTimeout(() => {
     if(this.state.currentComputer === false){return}
-    console.log("im the computer")
+    // console.log("im the computer")
     let random = Math.floor(Math.random()*(9))
     const divArr = document.querySelectorAll("div.grid")
     if(divArr[random].innerHTML === "X" || divArr[random].innerHTML === "O"){
@@ -74,21 +76,25 @@ class Grid extends React.Component {
       currentPlayer: true
     })
     }
-    }, 1000)
+  }, 3000)
   }
+  //setting the settimeout to 3000 makes the double alerts stop happening, likewise setting it to zero
+  //makes it happen everytime. The state being set by the computerturn sometimes lags and then sets
+  //while componentdidupdate is executing after I have won, thus causing it to fire off the alert twice
   //used arrow function for setTimeout, otherwise it causes scoping problems and makes the program crash
 
   componentDidUpdate(){
+    console.log(this.state.playerCellClicks)
     if(this.state.playerCellClicks.length === 3){
       for(let i=0;i< winningCombinations.length;i++){
         if(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(winningCombinations[i])){
           setTimeout(()=>{
+            this.setState({
+              currentPlayer: false,
+              currentComputer: false,
+              playerCellClicks: []
+            })
           alert(`WINNER!`)
-          this.setState({
-            currentPlayer: false,
-            currentComputer: false,
-            playerCellClicks: []
-          })
           if(window.confirm("Do you want to play again?")){
             const divArr = document.querySelectorAll("div.grid")
             for(let i=0;i< divArr.length;i++){
@@ -126,7 +132,6 @@ class Grid extends React.Component {
     </div>
     </div>
     {this.computerTurn()}
-
     </div>
   );
 }
