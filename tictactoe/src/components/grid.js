@@ -84,10 +84,20 @@ class Grid extends React.Component {
   //used arrow function for setTimeout, otherwise it causes scoping problems and makes the program crash
 
   componentDidUpdate(){
-    console.log(this.state.playerCellClicks)
-    if(this.state.playerCellClicks.length === 3){
-      for(let i=0;i< winningCombinations.length;i++){
-        if(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(winningCombinations[i])){
+
+    if(this.state.playerCellClicks.length >= 2){ //fix this, https://stackoverflow.com/questions/45152060/how-to-compare-an-array-to-an-array-of-arrays
+        let res = winningCombinations.filter(v => v.filter(c => {
+          return this.state.playerCellClicks.indexOf(c) > -1;
+        }).length >= 2);
+
+        let finalFilter = res.filter(v => v.filter(c => {
+          return this.state.playerCellClicks.indexOf(c) > -1;
+        }).length === 3);
+        // console.log(JSON.stringify(finalFilter[0]))
+        // console.log(JSON.stringify(this.state.playerCellClicks))
+        // console.log(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(finalFilter)[0])
+        if(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(finalFilter[0])){
+          console.log("hi")
           setTimeout(()=>{
             this.setState({
               currentPlayer: false,
@@ -108,7 +118,6 @@ class Grid extends React.Component {
         }
       }
     }
-  }
   //finally fixed the infinite loop problem, have to clear out this.state.playcellclicks first in setstate
   //without this the conditions for the setstate continue
 

@@ -24,4 +24,4 @@ class ChooseXorO extends React.Component {
 }
 }
 
-export default ChooseXorO;
+export default ChooseXorO
