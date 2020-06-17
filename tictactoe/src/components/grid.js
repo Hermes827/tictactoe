@@ -1,7 +1,5 @@
 import React from 'react';
 const winningCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
-let counter = 0;
-
 class Grid extends React.Component {
 
   constructor(){
@@ -19,13 +17,6 @@ class Grid extends React.Component {
     this.clickedCell = this.clickedCell.bind(this)
   }
 
-  // clearScoreAndReset(){
-  //   this.props.reset()
-  //   this.setState({
-  //     playerScore: 0,
-  //     computerScore: 0
-  //   })
-  // }
   componentDidMount(){
     this.firstPlayer()
   }
@@ -67,7 +58,7 @@ class Grid extends React.Component {
     let random = Math.floor(Math.random()*(9))
     const divArr = document.querySelectorAll("div.grid")
     if(divArr[random].innerHTML === "X" || divArr[random].innerHTML === "O"){
-      this.computerTurn()
+    this.computerTurn()
     } else {
     // divArr[random].innerHTML = "O"
     this.setState({
@@ -84,18 +75,13 @@ class Grid extends React.Component {
   //used arrow function for setTimeout, otherwise it causes scoping problems and makes the program crash
 
   componentDidUpdate(){
-
     if(this.state.playerCellClicks.length >= 2){ //fix this, https://stackoverflow.com/questions/45152060/how-to-compare-an-array-to-an-array-of-arrays
         let res = winningCombinations.filter(v => v.filter(c => {
           return this.state.playerCellClicks.indexOf(c) > -1;
         }).length >= 2);
-
         let finalFilter = res.filter(v => v.filter(c => {
           return this.state.playerCellClicks.indexOf(c) > -1;
         }).length === 3);
-        // console.log(JSON.stringify(finalFilter[0]))
-        // console.log(JSON.stringify(this.state.playerCellClicks))
-        // console.log(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(finalFilter)[0])
         if(JSON.stringify(this.state.playerCellClicks) === JSON.stringify(finalFilter[0])){
           console.log("hi")
           setTimeout(()=>{
