@@ -13,11 +13,15 @@ class App extends React.Component {
     this.state = {
       hasChosenMode: false,
       hasChosenXorO: false,
-      toggleGrid: false
+      toggleGrid: false,
+      setX: false,
+      setO: false
     }
     this.chooseNumberOfPlayers = this.chooseNumberOfPlayers.bind(this)
     this.chooseXorO = this.chooseXorO.bind(this)
     this.resetAll = this.resetAll.bind(this)
+    this.chooseX = this.chooseX.bind(this)
+    this.chooseO = this.chooseO.bind(this)
   }
 
   renderChoosePlayers(){
@@ -35,7 +39,7 @@ class App extends React.Component {
 
   renderChooseXorO(){
     if(this.state.hasChosenXorO === true){
-      return <ChooseXorO choose={this.chooseXorO}/>
+      return <ChooseXorO choose={this.chooseXorO} chooseX={this.chooseX} chooseO={this.chooseO}/>
     }
   }
 
@@ -46,9 +50,28 @@ class App extends React.Component {
     })
   }
 
+  chooseX(){
+    console.log("hello x")
+    this.setState({
+      hasChosenXorO: false,
+      toggleGrid: true,
+      setX: true
+    })
+  }
+
+  chooseO(){
+    console.log("hello o")
+    this.setState({
+      hasChosenXorO: false,
+      toggleGrid: true,
+      setO: true
+    })
+  }
+
+
   renderGrid(){
     if(this.state.toggleGrid === true){
-      return <Grid reset={this.resetAll}/>
+      return <Grid reset={this.resetAll} setX={this.state.setX} setO={this.state.setO}/>
     }
   }
 
