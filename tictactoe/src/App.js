@@ -17,13 +17,15 @@ class App extends React.Component {
       toggleGrid: false,
       setX: false,
       setO: false,
-      login: false
+      clickedLogin: false
     }
     this.chooseNumberOfPlayers = this.chooseNumberOfPlayers.bind(this)
     this.chooseXorO = this.chooseXorO.bind(this)
     this.resetAll = this.resetAll.bind(this)
     this.chooseX = this.chooseX.bind(this)
     this.chooseO = this.chooseO.bind(this)
+    this.login = this.login.bind(this)
+    this.signup = this.signup.bind(this)
   }
 
   renderChoosePlayers(){
@@ -86,11 +88,22 @@ class App extends React.Component {
   }
 
   login(){
-    console.log("login")
+    this.setState({
+      clickedLogin: true,
+      hasChosenMode: true
+    })
+  }
+
+  renderLogin(){
+    if(this.state.clickedLogin === true){
+      return(
+        <Login/>
+      )
+    }
   }
 
   signup(){
-    console.log("signup")
+    console.log(this)
   }
 
   render(){
@@ -105,6 +118,7 @@ class App extends React.Component {
     <div className="innerDiv">
       {this.renderChoosePlayers()}
       {this.renderChooseXorO()}
+      {this.renderLogin()}
     </div>
     </div>
     </div>

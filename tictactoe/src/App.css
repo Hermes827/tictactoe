@@ -213,5 +213,22 @@
 }
 
 .signup {
+  margin-top: 0.75em;
+  margin-left: 0.15em;
+}
 
+.usernameInput {
+  margin-left: 0.25em;
+}
+
+.passwordInput {
+  margin-left: 0.7em;
+}
+
+.loginForm {
+  /* width: 50%; */
+  /* border-style: solid;
+  border-width: medium;
+  border-color: black; */
+  margin-top: 10em;
 }
