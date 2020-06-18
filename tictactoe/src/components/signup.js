@@ -6,31 +6,51 @@ class Signup extends React.Component {
     super()
 
     this.state = {
-      text: ""
+      email: "",
+      password: ""
     }
-    this.captureText = this.captureText.bind(this)
+    this.captureEmail = this.captureEmail.bind(this)
+    this.capturePassword = this.capturePassword.bind(this)
+    this.createUser = this.createUser.bind(this)
   }
 
-  captureText(e){
+  captureEmail(e){
     this.setState({
-      text: e.target.value
+      email: e.target.value
     })
-    console.log(this.state.text)
   }
 
-  submitText(e){
+  capturePassword(e){
+    this.setState({
+      password: e.target.value
+    })
+  }
+
+  createUser(e){
     e.preventDefault()
-    console.log(this)
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
   }
 
   render(){
   return (
     <div>
-    <form className="loginForm" onSubmit={null}>
+    <form className="loginForm" onSubmit={this.createUser}>
     <h1>Sign up</h1>
-    Create username:<input className="usernameInput" onChange={this.captureText}/><br/>
-    Create password:<input className="passwordInput" onChange={this.captureText}/><br/>
-    Email: <input className="passwordInput" onChange={this.captureText}/><br/>
+    Email: <input className="passwordInput" onChange={this.captureEmail} type="text" name="email"/><br/>
+  Create password:<input className="passwordInput" type="password" name="password" onChange={this.capturePassword}/><br/>
     <button type="submit">Submit</button>
     </form>
     <button className="returnToHomepage" onClick={this.props.homepage}>Return to Homepage</button>
@@ -40,3 +60,5 @@ class Signup extends React.Component {
 }
 
 export default Signup
+
+// Create username:<input className="usernameInput" type="text" onChange={this.captureText}/><br/>
