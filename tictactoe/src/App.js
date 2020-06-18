@@ -4,6 +4,7 @@ import './App.css';
 import ChoosePlayers from './components/choosePlayers.js'
 import ChooseXorO from './components/chooseXorO.js'
 import Grid from './components/grid.js'
+import Login from './components/login.js'
 
 class App extends React.Component {
 
@@ -83,11 +84,23 @@ class App extends React.Component {
     })
   }
 
+  login(){
+    console.log("login")
+  }
+
+  signup(){
+    console.log("signup")
+  }
+
   render(){
   return (
     <div className="App">
       {this.renderGrid()}
     <div className="mainDiv">
+    <div className="signinDiv">
+    <button className="login" onClick={this.login}>Log in</button>
+    <button className="signup" onClick={this.signup}>Sign up</button>
+    </div>
     <div className="innerDiv">
       {this.renderChoosePlayers()}
       {this.renderChooseXorO()}
