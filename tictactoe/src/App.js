@@ -5,6 +5,7 @@ import ChoosePlayers from './components/choosePlayers.js'
 import ChooseXorO from './components/chooseXorO.js'
 import Grid from './components/grid.js'
 import Login from './components/login.js'
+import Signup from './components/signup.js'
 
 class App extends React.Component {
 
@@ -17,7 +18,8 @@ class App extends React.Component {
       toggleGrid: false,
       setX: false,
       setO: false,
-      clickedLogin: false
+      clickedLogin: false,
+      clickedSignup: false
     }
     this.chooseNumberOfPlayers = this.chooseNumberOfPlayers.bind(this)
     this.chooseXorO = this.chooseXorO.bind(this)
@@ -26,6 +28,7 @@ class App extends React.Component {
     this.chooseO = this.chooseO.bind(this)
     this.login = this.login.bind(this)
     this.signup = this.signup.bind(this)
+    this.returnToHomepage = this.returnToHomepage.bind(this)
   }
 
   renderChoosePlayers(){
@@ -97,13 +100,32 @@ class App extends React.Component {
   renderLogin(){
     if(this.state.clickedLogin === true){
       return(
-        <Login/>
+        <Login homepage={this.returnToHomepage}/>
       )
     }
   }
 
   signup(){
-    console.log(this)
+    this.setState({
+      clickedSignup: true,
+      hasChosenMode: true
+    })
+  }
+
+  renderSignup(){
+    if(this.state.clickedSignup === true){
+      return(
+        <Signup homepage={this.returnToHomepage}/>
+      )
+    }
+  }
+
+  returnToHomepage(){
+    this.setState({
+      clickedLogin: false,
+      clickedSignup: false,
+      hasChosenMode: false
+    })
   }
 
   render(){
@@ -119,6 +141,7 @@ class App extends React.Component {
       {this.renderChoosePlayers()}
       {this.renderChooseXorO()}
       {this.renderLogin()}
+      {this.renderSignup()}
     </div>
     </div>
     </div>

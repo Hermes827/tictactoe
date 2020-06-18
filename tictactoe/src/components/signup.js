@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Login extends React.Component {
+class Signup extends React.Component {
 
   constructor(){
     super()
@@ -27,9 +27,11 @@ class Login extends React.Component {
   return (
     <div>
     <form className="loginForm" onSubmit={null}>
-    <h1>Please log in</h1>
-    Username:<input className="usernameInput" onChange={this.captureText}/><br/>
-    Password:<input className="passwordInput" onChange={this.captureText}/>
+    <h1>Sign up</h1>
+    Create username:<input className="usernameInput" onChange={this.captureText}/><br/>
+    Create password:<input className="passwordInput" onChange={this.captureText}/><br/>
+    Email: <input className="passwordInput" onChange={this.captureText}/><br/>
+    <button type="submit">Submit</button>
     </form>
     <button className="returnToHomepage" onClick={this.props.homepage}>Return to Homepage</button>
     </div>
@@ -37,7 +39,4 @@ class Login extends React.Component {
 }
 }
 
-export default Login
-
-//using &nbsp: in the component itself looks kind of shitty or at least messy
-//Just use CSS to style these elements it looks much cleaner and is much cleaner
+export default Signup

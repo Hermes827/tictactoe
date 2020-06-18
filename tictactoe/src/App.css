@@ -219,6 +219,7 @@
 
 .usernameInput {
   margin-left: 0.25em;
+  margin-bottom: 0.5em;
 }
 
 .passwordInput {
@@ -231,4 +232,8 @@
   border-width: medium;
   border-color: black; */
   margin-top: 10em;
+}
+
+.returnToHomepage {
+  margin-top: 1em;
 }
