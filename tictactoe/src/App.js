@@ -16,7 +16,8 @@ class App extends React.Component {
       hasChosenXorO: false,
       toggleGrid: false,
       setX: false,
-      setO: false
+      setO: false,
+      login: false
     }
     this.chooseNumberOfPlayers = this.chooseNumberOfPlayers.bind(this)
     this.chooseXorO = this.chooseXorO.bind(this)
