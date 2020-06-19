@@ -6,30 +6,67 @@ class Login extends React.Component {
     super()
 
     this.state = {
-      text: ""
+      email: "",
+      password: ""
     }
-    this.captureText = this.captureText.bind(this)
+    this.captureEmail = this.captureEmail.bind(this)
+    this.capturePassword = this.capturePassword.bind(this)
+    this.login = this.login.bind(this)
   }
 
-  captureText(e){
+  captureEmail(e){
     this.setState({
-      text: e.target.value
+      email: e.target.value
     })
-    console.log(this.state.text)
   }
 
-  submitText(e){
-    e.preventDefault()
-    console.log(this)
+  capturePassword(e){
+    this.setState({
+      password: e.target.value
+    })
   }
+
+  login(e){
+    e.preventDefault()
+    console.log("hello")
+    fetch("http://localhost:3001/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+        // 'Accept': 'application/json',
+        // 'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+  }
+
+  // captureText(e){
+  //   this.setState({
+  //     text: e.target.value
+  //   })
+  //   console.log(this.state.text)
+  // }
+
+  // submitText(e){
+  //   e.preventDefault()
+  //   console.log(this)
+  // }
 
   render(){
   return (
     <div>
-    <form className="loginForm" onSubmit={null}>
+    <form className="loginForm" onSubmit={this.login}>
     <h1>Please log in</h1>
-    Username:<input className="usernameInput" onChange={this.captureText}/><br/>
-    Password:<input className="passwordInput" onChange={this.captureText}/>
+    Email: <input className="passwordInput" onChange={this.captureEmail} type="text" name="email"/><br/>
+    Create password:<input className="passwordInput" type="password" name="password" onChange={this.capturePassword}/><br/>
+    <button type="submit">login</button>
     </form>
     <button className="returnToHomepage" onClick={this.props.homepage}>Return to Homepage</button>
     </div>
