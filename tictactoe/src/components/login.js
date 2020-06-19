@@ -5,47 +5,62 @@ class Login extends React.Component {
   constructor(){
     super()
 
-    this.state = {
-      email: "",
-      password: ""
-    }
-    this.captureEmail = this.captureEmail.bind(this)
-    this.capturePassword = this.capturePassword.bind(this)
-    this.login = this.login.bind(this)
+    // this.state = {
+    //   email: "",
+    //   password: ""
+    // }
+    // this.captureEmail = this.captureEmail.bind(this)
+    // this.capturePassword = this.capturePassword.bind(this)
+    // this.login = this.login.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  captureEmail(e){
-    this.setState({
-      email: e.target.value
-    })
+  handleSubmit(ev){
+  ev.preventDefault()
+  const user = {
+    email: ev.target.elements["email"].value,
+    password: ev.target.elements["password"].value
   }
+  const newUser = JSON.stringify(user)
+  // console.log(newUser)
+  this.props.loginUser(user)
+  // console.log(user.email)
+  // console.log(JSON.stringify({email: "chris", password: "lol"}))
 
-  capturePassword(e){
-    this.setState({
-      password: e.target.value
-    })
-  }
+}
 
-  login(e){
-    e.preventDefault()
-    console.log("hello")
-    fetch("http://localhost:3001/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-        // 'Accept': 'application/json',
-        // 'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password
-      })
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    })
-  }
+  // captureEmail(e){
+  //   this.setState({
+  //     email: e.target.value
+  //   })
+  // }
+  //
+  // capturePassword(e){
+  //   this.setState({
+  //     password: e.target.value
+  //   })
+  // }
+
+  // login(e){
+  //   e.preventDefault()
+  //   console.log("hello")
+  //   fetch("http://localhost:3001/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json"
+  //       // 'Accept': 'application/json',
+  //       // 'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       email: this.state.email,
+  //       password: this.state.password
+  //     })
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log(data)
+  //   })
+  // }
 
   // captureText(e){
   //   this.setState({
@@ -62,13 +77,13 @@ class Login extends React.Component {
   render(){
   return (
     <div>
-    <form className="loginForm" onSubmit={this.login}>
+    <form className="loginForm" onSubmit={this.handleSubmit}>
     <h1>Please log in</h1>
-    Email: <input className="passwordInput" onChange={this.captureEmail} type="text" name="email"/><br/>
+    Email: <input className="passwordInput" onChange={null} type="text" name="email"/><br/>
     Create password:<input className="passwordInput" type="password" name="password" onChange={this.capturePassword}/><br/>
     <button type="submit">login</button>
     </form>
-    <button className="returnToHomepage" onClick={this.props.homepage}>Return to Homepage</button>
+    <button className="returnToHomepage" onClick={null}>Return to Homepage</button>
     </div>
   );
 }

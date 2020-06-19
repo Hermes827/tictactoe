@@ -19,7 +19,8 @@ class App extends React.Component {
       setX: false,
       setO: false,
       clickedLogin: false,
-      clickedSignup: false
+      clickedSignup: false,
+      currentUser: {}
     }
     this.chooseNumberOfPlayers = this.chooseNumberOfPlayers.bind(this)
     this.chooseXorO = this.chooseXorO.bind(this)
@@ -29,7 +30,51 @@ class App extends React.Component {
     this.login = this.login.bind(this)
     this.signup = this.signup.bind(this)
     this.returnToHomepage = this.returnToHomepage.bind(this)
+    this.loginUser = this.loginUser.bind(this)
+    this.setCurrentUser = this.setCurrentUser.bind(this)
   }
+
+
+  loginUser(user){
+
+    console.log("hello")
+    console.log(user.email)
+    fetch("http://localhost:3001/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        email: user.email,
+        password: user.password
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.setCurrentUser(data)
+    })
+  }
+
+  setCurrentUser(data){
+    this.setState({
+      currentUser: data.user
+    })
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   renderChoosePlayers(){
     if(this.state.hasChosenMode === false){
@@ -100,7 +145,9 @@ class App extends React.Component {
   renderLogin(){
     if(this.state.clickedLogin === true){
       return(
-        <Login homepage={this.returnToHomepage}/>
+        <Login homepage={this.returnToHomepage}
+               loginUser={this.loginUser}
+          />
       )
     }
   }

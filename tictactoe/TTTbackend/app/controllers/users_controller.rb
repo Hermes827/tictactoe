@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   def create
     # debugger
     # @user = User.create(user_stuff)
+    # debugger
     @user = User.create(email: params[:email], password: params[:password])
+
     # this worked when I wrote it out like this instead of using "user_params", but why?
     # it wasnt working because I need the params in user_params to be run through the serializer first
     if @user.valid?
@@ -11,6 +13,10 @@ class UsersController < ApplicationController
     else
     render json: {error: 'failed to create user'}
   end
+  end
+
+  def profile
+    render json: {user: current_user}, status: :accepted
   end
 
   # def user_stuff
