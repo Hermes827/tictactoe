@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+  has_secure_password
   # attr_accessor :email, :password
-  #this was what was causing data to save as nil, why do I need to use attr_accessor anyways?
-  #it might not be necessary for what im using
-  validates_uniqueness_of :email
 end
+
+# has_secure_password is causing the bug and not letting data persist in the db
+# with only has_secure_password enabled the bcrypt works when I make something in the console
