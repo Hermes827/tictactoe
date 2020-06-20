@@ -1,0 +1,2753 @@
+  [1m[35m (763.5ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_development" ENCODING = 'unicode'[0m
+  [1m[35m (420.1ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_test" ENCODING = 'unicode'[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200618141851)
+  [1m[35m (3.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200618141851"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-18 14:19:42.334158"], ["updated_at", "2020-06-18 14:19:42.334158"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-06-18 07:41:33 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.9ms | Allocations: 480)
+Completed 200 OK in 26ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 2635)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-06-18 07:41:33 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/signup" for ::1 at 2020-06-18 07:41:37 -0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms | Allocations: 3807)
+
+
+  
+NoMethodError (undefined method `attr_accessible' for #<Class:0x00007ffdb852df38>
+Did you mean?  attr_accessor):
+  
+app/models/user.rb:2:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/users_controller.rb:4:in `new'
+Started GET "/signup" for ::1 at 2020-06-18 07:42:09 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+Completed 204 No Content in 14ms (ActiveRecord: 6.6ms | Allocations: 4080)
+
+
+Started GET "/signup" for ::1 at 2020-06-18 07:42:13 -0700
+Processing by UsersController#new as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 46)
+
+
+Started GET "/signup" for ::1 at 2020-06-18 07:42:15 -0700
+Processing by UsersController#new as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 46)
+
+
+Started GET "/signup" for ::1 at 2020-06-18 07:42:17 -0700
+Processing by UsersController#new as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 46)
+
+
+Started GET "/" for ::1 at 2020-06-18 07:42:26 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.4ms | Allocations: 315)
+Completed 200 OK in 17ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 1592)
+
+
+Started GET "/signup" for ::1 at 2020-06-18 07:42:29 -0700
+Processing by UsersController#new as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 39)
+
+
+Started GET "/signup" for ::1 at 2020-06-18 07:42:56 -0700
+Processing by UsersController#new as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 46)
+
+
+Started OPTIONS "/signup" for ::1 at 2020-06-18 08:13:49 -0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/signup"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started OPTIONS "/signup" for ::1 at 2020-06-18 08:14:14 -0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/signup"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-06-18 08:15:48 -0700
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.0ms | Allocations: 315)
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 1597)
+
+
+Started POST "/signup" for ::1 at 2020-06-18 08:16:27 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/signup"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/signup" for ::1 at 2020-06-18 08:26:21 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/signup"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/signup" for ::1 at 2020-06-18 08:30:46 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 13.2ms | Allocations: 3347)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/users_controller.rb:4:in `create'
+Started POST "/signup" for ::1 at 2020-06-18 08:33:32 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (4.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-06-18 15:33:32.759164"], ["updated_at", "2020-06-18 15:33:32.759164"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "chris"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 33ms (Views: 1.7ms | ActiveRecord: 15.9ms | Allocations: 8373)
+
+
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/signup" for ::1 at 2020-06-18 08:37:35 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ok"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-06-18 15:37:35.938337"], ["updated_at", "2020-06-18 15:37:35.938337"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "ok"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 4496)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/signup" for ::1 at 2020-06-18 08:40:36 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"hey", "password"=>"[FILTERED]", "user"=>{"email"=>"hey"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hey"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-06-18 15:40:36.525769"], ["updated_at", "2020-06-18 15:40:36.525769"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "hey"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 22ms (Views: 0.5ms | ActiveRecord: 9.8ms | Allocations: 8373)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/signup" for ::1 at 2020-06-18 08:43:13 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"what", "password"=>"[FILTERED]", "user"=>{"email"=>"what"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "what"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-06-18 15:43:13.982067"], ["updated_at", "2020-06-18 15:43:13.982067"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "what"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 33ms (Views: 0.5ms | ActiveRecord: 16.2ms | Allocations: 8373)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "haha"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-06-18 15:44:07.746699"], ["updated_at", "2020-06-18 15:44:07.746699"]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/signup" for ::1 at 2020-06-18 08:55:53 -0700
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "chris"], ["created_at", "2020-06-18 15:55:53.761146"], ["updated_at", "2020-06-18 15:55:53.761146"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "chris"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 36ms (Views: 0.8ms | ActiveRecord: 15.2ms | Allocations: 8390)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/signup" for ::1 at 2020-06-19 05:14:53 -0700
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 12.3ms | Allocations: 10968)
+
+
+Started GET "/" for ::1 at 2020-06-19 05:16:22 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.5ms | Allocations: 315)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 1593)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-06-19 05:16:23 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/signup" for ::1 at 2020-06-19 05:16:41 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 4280)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:17:57 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 4238)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:19:37 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 8.5ms | Allocations: 9122)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:20:14 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"lol", "password"=>"[FILTERED]", "user"=>{"email"=>"lol"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lol"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "lol"], ["created_at", "2020-06-19 12:20:14.218697"], ["updated_at", "2020-06-19 12:20:14.218697"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "lol"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 14ms (Views: 0.5ms | ActiveRecord: 3.5ms | Allocations: 4630)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:20:19 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"lol", "password"=>"[FILTERED]", "user"=>{"email"=>"lol"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lol"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lol"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 4238)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:20:47 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"lol", "password"=>"[FILTERED]", "user"=>{"email"=>"lol"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "lol"], ["created_at", "2020-06-19 12:20:47.107620"], ["updated_at", "2020-06-19 12:20:47.107620"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 6.9ms | Allocations: 5426)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:20:48 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"lol", "password"=>"[FILTERED]", "user"=>{"email"=>"lol"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "lol"], ["created_at", "2020-06-19 12:20:48.251854"], ["updated_at", "2020-06-19 12:20:48.251854"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2487)
+
+
+Started GET "/manifest.json" for ::1 at 2020-06-19 05:26:31 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-06-19 05:26:36 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chriscable/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.0ms | Allocations: 315)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 1598)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:26:53 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 37ms (Views: 0.1ms | ActiveRecord: 10.7ms | Allocations: 5441)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:28:11 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 935)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:31:18 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 406 Not Acceptable in 9ms (Views: 0.2ms | ActiveRecord: 5.8ms | Allocations: 3983)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:31:40 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"what", "password"=>"[FILTERED]", "user"=>{"email"=>"what"}}
+Completed 406 Not Acceptable in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 974)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:32:05 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+Completed 406 Not Acceptable in 26ms (Views: 13.2ms | ActiveRecord: 6.6ms | Allocations: 5461)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:35:00 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 5.4ms | Allocations: 3976)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:36:06 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 6.1ms | Allocations: 3965)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:36:48 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+Completed 406 Not Acceptable in 9ms (Views: 0.1ms | ActiveRecord: 5.8ms | Allocations: 4015)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:37:06 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 6.3ms | Allocations: 3980)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:37:31 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 5.6ms | Allocations: 3971)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:37:35 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 965)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:38:02 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"random", "password"=>"[FILTERED]", "user"=>{"email"=>"random"}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 965)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/signup" for ::1 at 2020-06-19 05:43:39 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"random", "password"=>"[FILTERED]", "user"=>{"email"=>"random"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 965)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:44:28 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"random", "password"=>"[FILTERED]", "user"=>{"email"=>"random"}}
+Started POST "/signup" for ::1 at 2020-06-19 05:44:56 -0700
+Completed 500 Internal Server Error in 79121ms (ActiveRecord: 6.7ms | Allocations: 278943)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 05:45:47 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"random", "password"=>"[FILTERED]", "user"=>{"email"=>"random"}}
+Completed 500 Internal Server Error in 14459ms (ActiveRecord: 0.0ms | Allocations: 45632)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 05:46:05 -0700
+Started POST "/signup" for ::1 at 2020-06-19 05:46:05 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"random", "password"=>"[FILTERED]", "user"=>{"email"=>"random"}}
+Completed 500 Internal Server Error in 1570ms (ActiveRecord: 9.4ms | Allocations: 126797)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"random", "password"=>"[FILTERED]", "user"=>{"email"=>"random"}}
+Processing by UsersController#create as */*
+Completed 500 Internal Server Error in 1192ms (ActiveRecord: 0.0ms | Allocations: 129934)
+
+
+  Parameters: {"email"=>"newemail", "password"=>"[FILTERED]", "user"=>{"email"=>"newemail"}}
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 2412ms (ActiveRecord: 0.0ms | Allocations: 2474542)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 05:46:36 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"friday", "password"=>"[FILTERED]", "user"=>{"email"=>"friday"}}
+Completed 500 Internal Server Error in 130602ms (ActiveRecord: 2.9ms | Allocations: 127110)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 05:48:47 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"friday", "password"=>"[FILTERED]", "user"=>{"email"=>"friday"}}
+Completed 500 Internal Server Error in 13675ms (ActiveRecord: 0.0ms | Allocations: 49534)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 05:49:24 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"friday", "password"=>"[FILTERED]", "user"=>{"email"=>"friday"}}
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 7.1ms | Allocations: 5450)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:51:28 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"friday", "password"=>"[FILTERED]", "user"=>{"email"=>"friday"}}
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.6ms | Allocations: 4010)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:52:39 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"hello", "password"=>"[FILTERED]", "user"=>{"email"=>"hello"}}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 975)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:53:44 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"hello", "password"=>"[FILTERED]", "user"=>{"email"=>"hello"}}
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 6.8ms | Allocations: 5457)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:54:03 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"hello", "password"=>"[FILTERED]", "user"=>{"email"=>"hello"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "hello"], ["created_at", "2020-06-19 12:54:03.933046"], ["updated_at", "2020-06-19 12:54:03.933046"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 13ms (Views: 0.3ms | ActiveRecord: 7.0ms | Allocations: 5533)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 05:59:21 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"hello", "password"=>"[FILTERED]", "user"=>{"email"=>"hello"}}
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 7.3ms | Allocations: 5457)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:02:45 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"hello", "password"=>"[FILTERED]", "user"=>{"email"=>"hello"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 5.8ms | Allocations: 3060)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:04:15 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 150)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for ::1 at 2020-06-19 06:04:45 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 6.9ms | Allocations: 3348)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:04:58 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "chris"], ["created_at", "2020-06-19 13:04:58.674291"], ["updated_at", "2020-06-19 13:04:58.674291"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 19ms (Views: 0.5ms | ActiveRecord: 9.6ms | Allocations: 5646)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:06:16 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "chris"], ["created_at", "2020-06-19 13:06:16.587560"], ["updated_at", "2020-06-19 13:06:16.587560"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 2487)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:06:23 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 5.8ms | Allocations: 5084)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:10:22 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "chris"], ["created_at", "2020-06-19 13:10:22.669283"], ["updated_at", "2020-06-19 13:10:22.669283"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 6.6ms | Allocations: 5418)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:11:10 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.4ms | Allocations: 4004)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:15:38 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 975)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:16:15 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 54986ms (ActiveRecord: 3.6ms | Allocations: 65031)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:17:10 -0700
+Started POST "/signup" for ::1 at 2020-06-19 06:17:10 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"chris@hotmail.com"}}
+Completed 500 Internal Server Error in 2088ms (ActiveRecord: 0.0ms | Allocations: 24819)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"chris@hotmail.com"}}
+Completed 500 Internal Server Error in 10471ms (ActiveRecord: 0.0ms | Allocations: 17764)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:17:41 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"chris@hotmail.com"}}
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 7.9ms | Allocations: 5457)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:17:55 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 975)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:18:05 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+Completed 500 Internal Server Error in 238943ms (ActiveRecord: 3.1ms | Allocations: 180006)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:22:05 -0700
+  
+NoMethodError (undefined method `attr_accessible' for #<Class:0x00007ff32e5c7780>
+Did you mean?  attr_accessor):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/signup" for ::1 at 2020-06-19 06:22:22 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `attr_accessible' for #<Class:0x00007faf79d57d18>
+Did you mean?  attr_accessor):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+Started POST "/signup" for ::1 at 2020-06-19 06:22:36 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 6.2ms | Allocations: 5427)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:23:49 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "haha"], ["password_digest", "haha"], ["created_at", "2020-06-19 13:31:11.401970"], ["updated_at", "2020-06-19 13:31:11.401970"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "haha"], ["password_digest", "$2a$12$zfBO8Vy9ccT9ADl0rV31Ku79BtjAA6jW0XPqe32YiFSghQd04QzHS"], ["created_at", "2020-06-19 13:32:03.907882"], ["updated_at", "2020-06-19 13:32:03.907882"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 566364ms (ActiveRecord: 3.6ms | Allocations: 235079)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:33:16 -0700
+Started POST "/signup" for ::1 at 2020-06-19 06:33:16 -0700
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+Completed 500 Internal Server Error in 2357ms (ActiveRecord: 0.0ms | Allocations: 245452)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:33:32 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 8.1ms | Allocations: 5457)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:34:58 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "haha"], ["password_digest", "$2a$12$8pbekgiepmjnvCYU3BbCYebCyhclpTAvCFTEvxWTIIWPJN.ohsPFW"], ["created_at", "2020-06-19 13:35:54.640974"], ["updated_at", "2020-06-19 13:35:54.640974"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 165977ms (ActiveRecord: 2.8ms | Allocations: 258200)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:38:08 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/users_controller.rb:8: else without rescue is useless
+    else
+    ^~~~
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/users_controller.rb:17: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/users_controller.rb:8: else without rescue is useless
+app/controllers/users_controller.rb:17: syntax error, unexpected end, expecting end-of-input
+app/controllers/users_controller.rb:8: else without rescue is useless
+app/controllers/users_controller.rb:17: syntax error, unexpected end, expecting end-of-input
+Started POST "/signup" for ::1 at 2020-06-19 06:39:02 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+Completed 201 Created in 26ms (Views: 0.4ms | ActiveRecord: 7.1ms | Allocations: 5181)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:39:28 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+Completed 201 Created in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 685)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:39:30 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"dfsadf@hotmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"dfsadf@hotmail.com"}}
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 685)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:40:33 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"hi", "password"=>"[FILTERED]", "user"=>{"email"=>"hi"}}
+Completed 500 Internal Server Error in 277313ms (ActiveRecord: 3.0ms | Allocations: 125389)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:45:27 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+[object Object]
+  
+ActionDispatch::Http::Parameters::ParseError (416: unexpected token at 'object Object]'):
+  
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+[object Object]
+Started POST "/signup" for ::1 at 2020-06-19 06:46:11 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 201 Created in 17ms (Views: 0.4ms | ActiveRecord: 10.6ms | Allocations: 5179)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:47:09 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 5.1ms | Allocations: 4022)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:47:39 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 5.2ms | Allocations: 4013)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:47:51 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 975)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:48:08 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 7.3ms | Allocations: 5457)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "haha"], ["password_digest", "$2a$12$RIWQt6a54kMv5Knu.wcyeutgQXfm.U6g6NuTe50E554XxQ.9RoNj2"], ["created_at", "2020-06-19 13:49:23.416568"], ["updated_at", "2020-06-19 13:49:23.416568"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/signup" for ::1 at 2020-06-19 06:50:34 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 3.5ms | Allocations: 155)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 1)):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:50:58 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 6.4ms | Allocations: 3304)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:51:41 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 5.8ms | Allocations: 3088)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:51:54 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 5.7ms | Allocations: 3064)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:54:41 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 5.6ms | Allocations: 5086)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 06:54:56 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 5.6ms | Allocations: 3062)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:55:16 -0700
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 5.1ms | Allocations: 3037)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:57:53 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 124)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/users_controller.rb:5:in `create'
+Started POST "/signup" for ::1 at 2020-06-19 06:58:16 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.3ms | Allocations: 4014)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:00:12 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 6.4ms | Allocations: 3598)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:01:34 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$08gOCo/YQtCs5uDXk17QX.sB741TrBO6RRQsOSCU2XUdI/YIUwj1i"], ["created_at", "2020-06-19 14:01:34.796300"], ["updated_at", "2020-06-19 14:01:34.796300"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 239ms (Views: 0.3ms | ActiveRecord: 7.1ms | Allocations: 5659)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:01:47 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"chrissdfasf"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chrissdfasf"], ["password_digest", "$2a$12$qh.fFUApVuoDvOKBNeSppugPCewSOqJ6wyHdhONpa4/jreerxTqGK"], ["created_at", "2020-06-19 14:01:48.036570"], ["updated_at", "2020-06-19 14:01:48.036570"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 242ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2526)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:03:16 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"chrissdfasf"}}
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 5.5ms | Allocations: 3969)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:03:38 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"chrissdfasf"}}
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 5.6ms | Allocations: 4002)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:03:39 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"chrissdfasf"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 963)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:08:30 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"chrissdfasf"}}
+[31mUnpermitted parameter: :email[0m
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 7.1ms | Allocations: 3980)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:10:48 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"chrissdfasf"}}
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.3ms | Allocations: 4004)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:11:26 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"chrissdfasf"}}
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.7ms | Allocations: 3969)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:11:43 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"chrissdfasf"}}
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.6ms | Allocations: 4002)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:11:46 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"sdfaschrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"sdfaschrissdfasf"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 963)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:12:06 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"sdfaschrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"sdfaschrissdfasf"}}
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 5.2ms | Allocations: 3969)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:12:28 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"sdfaschrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"sdfaschrissdfasf"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "sdfaschrissdfasf"], ["password_digest", "$2a$12$S/BDSD45inaadC7QMRv0Y.jA3m/Otivzi.JEu9qER7.WnwVePVtE2"], ["created_at", "2020-06-19 14:12:28.730900"], ["updated_at", "2020-06-19 14:12:28.730900"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 201 Created in 229ms (Views: 0.3ms | ActiveRecord: 7.0ms | Allocations: 5547)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:23:32 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"sdfaschrissdfasf", "password"=>"[FILTERED]", "user"=>{"email"=>"sdfaschrissdfasf"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "sdfaschrissdfasf"], ["password_digest", "$2a$12$/rBSoeJMHjAu2aFR6kIkjuMpDHQaYOBaXQ6FNpuFwqPAHdiPhwkme"], ["created_at", "2020-06-19 14:23:32.827620"], ["updated_at", "2020-06-19 14:23:32.827620"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 201 Created in 231ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 5527)
+
+
+Started POST "/signup" for ::1 at 2020-06-19 07:27:58 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$nd3AIvDeSzCo2R2SfC7aVOmN6frqd5u4XeIYbVxL97ibZ4BmRhXk2"], ["created_at", "2020-06-19 14:27:58.289711"], ["updated_at", "2020-06-19 14:27:58.289711"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 201 Created in 237ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2525)
+
+
+Started POST "/login" for ::1 at 2020-06-19 07:29:52 -0700
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2020-06-19 07:31:42 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2020-06-19 07:31:50 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2020-06-19 07:32:10 -0700
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2020-06-19 07:33:56 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2020-06-19 07:35:36 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+    render json: { user: @user)}, status: :accepted
+                              ^
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+    render json: { message: 'Invalid username o...
+                 ^
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+...Invalid username or password' }
+...                              ^):
+  
+app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (229.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_development"[0m
+  [1m[35m (230.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_test"[0m
+  [1m[35m (595.2ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_development" ENCODING = 'unicode'[0m
+  [1m[35m (370.2ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_test" ENCODING = 'unicode'[0m
+Started POST "/signup" for ::1 at 2020-06-19 07:38:30 -0700
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3.2) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3.2) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200618141851)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200618141851"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-19 14:38:43.941022"], ["updated_at", "2020-06-19 14:38:43.941022"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for ::1 at 2020-06-19 07:38:51 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$8YQXuTkz7WHdvbmyiZoQGOYDd9XD08pyss.7O3GkNhfDpbe0xKTme"], ["created_at", "2020-06-19 14:38:51.928756"], ["updated_at", "2020-06-19 14:38:51.928756"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 201 Created in 250ms (Views: 0.4ms | ActiveRecord: 12.3ms | Allocations: 6033)
+
+
+Started POST "/login" for ::1 at 2020-06-19 07:39:02 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+    render json: { user: @user)}, status: :accepted
+                              ^
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+    render json: { message: 'Invalid username o...
+                 ^
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+...Invalid username or password' }
+...                              ^):
+  
+app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+Started POST "/login" for ::1 at 2020-06-19 07:40:04 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+    render json: { user: @user)}, status: :accepted
+                              ^
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+    render json: {message: 'Invalid username or...
+                 ^
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+...'Invalid username or password'}
+...                              ^):
+  
+app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+Started POST "/login" for ::1 at 2020-06-19 07:40:19 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+    render json: { user: @user)}, status: :accepted
+                              ^
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+    render json: {error: 'Invalid username or p...
+                 ^
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+...'Invalid username or password'}
+...                              ^):
+  
+app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+app/controllers/sessions_controller.rb:7: syntax error, unexpected ')', expecting '}'
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tLAMBEG
+app/controllers/sessions_controller.rb:9: syntax error, unexpected '}', expecting end
+Started POST "/login" for ::1 at 2020-06-19 07:42:30 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "session"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 1967)
+
+
+Started POST "/login" for ::1 at 2020-06-19 07:44:06 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 202 Accepted in 239ms (Views: 0.3ms | ActiveRecord: 7.3ms | Allocations: 3764)
+
+
+Started POST "/login" for ::1 at 2020-06-19 07:44:16 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 200 OK in 238ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 717)
+
+
+Started POST "/login" for ::1 at 2020-06-19 07:44:20 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 200 OK in 239ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 716)
+
+
+Started POST "/login" for ::1 at 2020-06-19 07:44:27 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 202 Accepted in 241ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 800)
+
+
+Started POST "/login" for ::1 at 2020-06-19 07:47:12 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 202 Accepted in 341ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 785)
+
+
+Started POST "/login" for ::1 at 2020-06-19 07:48:26 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 202 Accepted in 232ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 786)
+
+
+Started POST "/login" for ::1 at 2020-06-19 08:01:52 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 202 Accepted in 224ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 871)
+
+
+Started POST "/login" for ::1 at 2020-06-19 08:03:17 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 202 Accepted in 238ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 786)
+
+
+Started POST "/login" for ::1 at 2020-06-19 08:11:25 -0700
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:20:in `<main>'
+Started POST "/login" for ::1 at 2020-06-19 08:11:50 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:8: syntax error, unexpected '}', expecting =>
+    render json: {random}, status: :accepted
+                        ^):
+  
+app/controllers/sessions_controller.rb:8: syntax error, unexpected '}', expecting =>
+app/controllers/sessions_controller.rb:8: syntax error, unexpected '}', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 08:12:31 -0700
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:20:in `<main>'
+Started POST "/login" for ::1 at 2020-06-19 08:12:33 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 202 Accepted in 254ms (Views: 0.2ms | ActiveRecord: 12.0ms | Allocations: 5389)
+
+
+Started POST "/login" for ::1 at 2020-06-19 08:13:09 -0700
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:20:in `<main>'
+Started POST "/login" for ::1 at 2020-06-19 08:13:11 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 500 Internal Server Error in 349ms (ActiveRecord: 9.7ms | Allocations: 40400)
+
+
+  
+NoMethodError (undefined method `encode_token' for #<SessionsController:0x00007fab084b3448>):
+  
+app/controllers/sessions_controller.rb:7:in `new'
+Started POST "/login" for ::1 at 2020-06-19 08:13:32 -0700
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:20:in `<main>'
+Started POST "/login" for ::1 at 2020-06-19 08:13:33 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 500 Internal Server Error in 295ms (ActiveRecord: 9.0ms | Allocations: 40372)
+
+
+  
+NoMethodError (undefined method `encode_token' for #<SessionsController:0x00007fab0734b570>):
+  
+app/controllers/sessions_controller.rb:7:in `new'
+Started POST "/login" for ::1 at 2020-06-19 08:18:27 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:20:in `<main>'
+Started POST "/login" for ::1 at 2020-06-19 08:18:30 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 500 Internal Server Error in 334ms (ActiveRecord: 11.3ms | Allocations: 41135)
+
+
+  
+NoMethodError (undefined method `encode_token' for #<SessionsController:0x00007f95d914a2f0>):
+  
+app/controllers/sessions_controller.rb:7:in `new'
+Started POST "/login" for ::1 at 2020-06-19 08:18:31 -0700
+Processing by SessionsController#new as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "session"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `new'
+Completed 500 Internal Server Error in 331ms (ActiveRecord: 0.5ms | Allocations: 36471)
+
+
+  
+NoMethodError (undefined method `encode_token' for #<SessionsController:0x00007f95d5e90508>):
+  
+app/controllers/sessions_controller.rb:7:in `new'
+Started POST "/login" for ::1 at 2020-06-19 08:19:58 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:20:in `<main>'
+Started POST "/login" for ::1 at 2020-06-19 08:21:19 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/sessions_controller.rb:8: syntax error, unexpected '}', expecting =>
+    render json: {token}, status: :accepted
+                       ^):
+  
+app/controllers/sessions_controller.rb:8: syntax error, unexpected '}', expecting =>
+app/controllers/sessions_controller.rb:8: syntax error, unexpected '}', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:19:32 -0700
+  
+AbstractController::ActionNotFound (The action 'login' could not be found for AuthController):
+  
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2020-06-19 09:23:57 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:8: syntax error, unexpected ',', expecting =>
+    render json: {@user, jwt:jwt}, status: :accepted
+                       ^):
+  
+app/controllers/auth_controller.rb:8: syntax error, unexpected ',', expecting =>
+app/controllers/auth_controller.rb:8: syntax error, unexpected ',', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:24:46 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:8: syntax error, unexpected ',', expecting =>
+    render json: {@user, jwt}, status: :accepted
+                       ^):
+  
+app/controllers/auth_controller.rb:8: syntax error, unexpected ',', expecting =>
+app/controllers/auth_controller.rb:8: syntax error, unexpected ',', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:24:57 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:8: syntax error, unexpected '}', expecting =>
+    render json: {jwt}, status: :accepted
+                     ^):
+  
+app/controllers/auth_controller.rb:8: syntax error, unexpected '}', expecting =>
+app/controllers/auth_controller.rb:8: syntax error, unexpected '}', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:25:46 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:9: syntax error, unexpected '}', expecting =>
+    render json: {jwt}, status: :accepted
+                     ^):
+  
+app/controllers/auth_controller.rb:9: syntax error, unexpected '}', expecting =>
+app/controllers/auth_controller.rb:9: syntax error, unexpected '}', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:26:00 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:9: syntax error, unexpected '}', expecting =>
+    render json: {jwt}, status: :accepted
+                     ^):
+  
+app/controllers/auth_controller.rb:9: syntax error, unexpected '}', expecting =>
+app/controllers/auth_controller.rb:9: syntax error, unexpected '}', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:27:03 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 25697ms (ActiveRecord: 0.0ms | Allocations: 178905)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 09:27:39 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 202 Accepted in 253ms (Views: 0.2ms | ActiveRecord: 8.6ms | Allocations: 5418)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:29:07 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 500 Internal Server Error in 224150ms (ActiveRecord: 9.1ms | Allocations: 58743)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:9:in `login'
+Started POST "/signup" for ::1 at 2020-06-19 09:33:23 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$hSNBXe0xJUTTLTzQuYXJOurag3hkNAEqd.rxCXF/eQmZMqMGoer92"], ["created_at", "2020-06-19 16:33:23.916090"], ["updated_at", "2020-06-19 16:33:23.916090"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 201 Created in 244ms (Views: 0.6ms | ActiveRecord: 10.5ms | Allocations: 6033)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:33:31 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 260ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1266)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:34:30 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 238ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 718)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:35:07 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 232ms (Views: 0.2ms | ActiveRecord: 6.4ms | Allocations: 4591)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:35:42 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 248ms (Views: 0.4ms | ActiveRecord: 7.8ms | Allocations: 5370)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:35:55 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 229ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 719)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:36:12 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"haha", "password"=>"[FILTERED]", "auth"=>{"email"=>"haha", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "haha"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 6.0ms | Allocations: 678)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:36:44 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 241ms (Views: 0.2ms | ActiveRecord: 6.6ms | Allocations: 4591)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:37:21 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 271335ms (ActiveRecord: 0.0ms | Allocations: 222888)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 09:42:10 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 77009ms (ActiveRecord: 0.0ms | Allocations: 54836)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 09:43:33 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 252ms (Views: 0.3ms | ActiveRecord: 8.5ms | Allocations: 5309)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:44:53 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 233ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 710)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:46:24 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `login'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 306099ms (ActiveRecord: 8.2ms | Allocations: 321846)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:7:in `login'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (259.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_development"[0m
+  [1m[35m (254.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_test"[0m
+  [1m[35m (537.5ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_development" ENCODING = 'unicode'[0m
+  [1m[35m (390.6ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200618141851)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200618141851"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-19 16:51:58.088803"], ["updated_at", "2020-06-19 16:51:58.088803"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for ::1 at 2020-06-19 09:52:32 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$iFUhC9SKwhkpKEXDD0k3kuVht3tfyfpB.wo56giRUuyfA9liPWbgO"], ["created_at", "2020-06-19 16:52:32.969006"], ["updated_at", "2020-06-19 16:52:32.969006"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 201 Created in 247ms (Views: 0.4ms | ActiveRecord: 11.9ms | Allocations: 6033)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:53:02 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 202 Accepted in 231ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 1250)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:54:06 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 202 Accepted in 321ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 754)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:54:58 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 202 Accepted in 238ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 754)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:55:08 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 202 Accepted in 245ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 754)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:56:48 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:11: syntax error, unexpected ',', expecting =>
+    render json: {@user, jwt:jwt}, status: :accepted
+                       ^):
+  
+app/controllers/auth_controller.rb:11: syntax error, unexpected ',', expecting =>
+app/controllers/auth_controller.rb:11: syntax error, unexpected ',', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:57:06 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+    render json: {@user}, status: :accepted
+                       ^):
+  
+app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:57:17 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 202 Accepted in 235ms (Views: 0.1ms | ActiveRecord: 6.9ms | Allocations: 4602)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:57:40 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 202 Accepted in 235ms (Views: 0.1ms | ActiveRecord: 5.2ms | Allocations: 4594)
+
+
+Started POST "/login" for ::1 at 2020-06-19 09:57:54 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+    render json: {jwt}, status: :accepted
+                     ^):
+  
+app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:57:55 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+    render json: {jwt}, status: :accepted
+                     ^):
+  
+app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+app/controllers/auth_controller.rb:11: syntax error, unexpected '}', expecting =>
+Started POST "/login" for ::1 at 2020-06-19 09:58:55 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 202 Accepted in 243ms (Views: 0.4ms | ActiveRecord: 6.8ms | Allocations: 4776)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:26:27 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"username"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1555)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:27:21 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"username"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 815)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:28:22 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 815)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:30:08 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 815)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:31:01 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 230715ms (ActiveRecord: 5.9ms | Allocations: 50532)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:7:in `login'
+Started POST "/signup" for ::1 at 2020-06-19 10:36:35 -0700
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"hi", "password"=>"[FILTERED]", "user"=>{"email"=>"hi"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "hi"], ["password_digest", "$2a$12$d7rz7gwyikypyODCqrVMpeBelYAJ8UqULedQ8MfK4sq4gYIqJy9cW"], ["created_at", "2020-06-19 17:36:35.654125"], ["updated_at", "2020-06-19 17:36:35.654125"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 201 Created in 240ms (Views: 0.4ms | ActiveRecord: 10.4ms | Allocations: 6033)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:36:45 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 1205)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:39:54 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 15641ms (ActiveRecord: 0.0ms | Allocations: 47399)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 10:40:22 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 150905ms (ActiveRecord: 0.0ms | Allocations: 204108)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 10:42:53 -0700
+Error occurred while parsing request parameters.
+Contents:
+
+[object Object]
+  
+ActionDispatch::Http::Parameters::ParseError (416: unexpected token at 'object Object]'):
+  
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+[object Object]
+Started POST "/login" for ::1 at 2020-06-19 10:43:03 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+[object Object]
+  
+ActionDispatch::Http::Parameters::ParseError (416: unexpected token at 'object Object]'):
+  
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:114:in `rescue in parse_formatted_parameters'
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:110:in `parse_formatted_parameters'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.3.2) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (6.0.3.2) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:278:in `_wrapper_enabled?'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+[object Object]
+Started POST "/login" for ::1 at 2020-06-19 10:43:50 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 3553)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:46:58 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `login'
+Completed 500 Internal Server Error in 54932ms (ActiveRecord: 8.2ms | Allocations: 56531)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 10:48:08 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `login'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `login'
+Completed 500 Internal Server Error in 116330ms (ActiveRecord: 11.1ms | Allocations: 68694)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:7:in `login'
+Started POST "/login" for ::1 at 2020-06-19 10:50:29 -0700
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 2143)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:51:37 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:6:in `login'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 2143)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:52:46 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:6:in `login'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 1604)
+
+
+Started POST "/login" for ::1 at 2020-06-19 10:53:29 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:6:in `login'
+Completed 500 Internal Server Error in 195604ms (ActiveRecord: 2.3ms | Allocations: 263883)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:8:in `login'
+Started POST "/signup" for ::1 at 2020-06-19 10:56:44 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"ok", "password"=>"[FILTERED]", "user"=>{"email"=>"ok"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "ok"], ["password_digest", "$2a$12$1HsWCpHU4SOghLH5jNnOTuNw.3Q.gXi4UP89c1khNGjGnEwM8OZB."], ["created_at", "2020-06-19 17:56:47.015102"], ["updated_at", "2020-06-19 17:56:47.015102"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 25100ms (ActiveRecord: 12.2ms | Allocations: 697172)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2020-06-19 10:59:00 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 79)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:01:37 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 31)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:02:09 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 31)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:03:35 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 2143)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:04:27 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 833)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:04:45 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:05:02 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:05:29 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:06:30 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:07:16 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:07:48 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:07:58 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:08:05 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:08:05 -0700
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:08:24 -0700
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/auth_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:08:47 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 79)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:09:18 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Started POST "/login" for ::1 at 2020-06-19 11:13:47 -0700
+Started POST "/login" for ::1 at 2020-06-19 11:14:09 -0700
+Completed 500 Internal Server Error in 291159ms (ActiveRecord: 0.0ms | Allocations: 667204)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `process_action'
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 10650ms (ActiveRecord: 0.0ms | Allocations: 25351)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:20:in `login'
+Started POST "/signup" for ::1 at 2020-06-19 11:14:47 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"what", "password"=>"[FILTERED]", "user"=>{"email"=>"what"}}
+Completed 500 Internal Server Error in 38010ms (ActiveRecord: 3.5ms | Allocations: 48924)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:7:in `create'
+Started POST "/login" for ::1 at 2020-06-19 11:15:53 -0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Started POST "/login" for ::1 at 2020-06-19 11:23:36 -0700
+  [1m[36mUser Load (46.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (chris) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ (byebug):1:in `login'
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 580100ms (ActiveRecord: 59.2ms | Allocations: 911846)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Completed 500 Internal Server Error in 1442ms (ActiveRecord: 0.0ms | Allocations: 29733)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 11:26:19 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+... User.find_by(user:[:user]email:params[:email])
+...                          ^~~~~
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:6: syntax error, unexpected ')', expecting end
+...er:[:user]email:params[:email])
+...                              ^):
+  
+app/controllers/auth_controller.rb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/auth_controller.rb:6: syntax error, unexpected ')', expecting end
+app/controllers/auth_controller.rb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/auth_controller.rb:6: syntax error, unexpected ')', expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:26:55 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+... User.find_by(user:[:user]email:params[:email])
+...                          ^~~~~
+/Users/chriscable/Desktop/new projects/retrofitting projects/tictactoe/tictactoe/tictactoe/TTTbackend/app/controllers/auth_controller.rb:6: syntax error, unexpected ')', expecting end
+...er:[:user]email:params[:email])
+...                              ^):
+  
+app/controllers/auth_controller.rb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/auth_controller.rb:6: syntax error, unexpected ')', expecting end
+app/controllers/auth_controller.rb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/auth_controller.rb:6: syntax error, unexpected ')', expecting end
+Started POST "/login" for ::1 at 2020-06-19 11:27:19 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Started POST "/login" for ::1 at 2020-06-19 11:27:43 -0700
+Started POST "/login" for ::1 at 2020-06-19 11:27:43 -0700
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `login'
+Completed 500 Internal Server Error in 217799ms (ActiveRecord: 41.9ms | Allocations: 295675)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 11:30:57 -0700
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 1679ms (ActiveRecord: 0.0ms | Allocations: 53798)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Processing by AuthController#login as */*
+  Parameters: {"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"email"=>"chris", "password"=>"[FILTERED]"}}}
+Completed 500 Internal Server Error in 1541ms (ActiveRecord: 0.0ms | Allocations: 794048)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/auth_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2020-06-19 11:31:14 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 204 No Content in 19ms (ActiveRecord: 8.9ms | Allocations: 5181)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:42:57 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 204 No Content in 3ms (ActiveRecord: 0.9ms | Allocations: 696)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:43:24 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `login'
+Completed 204 No Content in 2ms (ActiveRecord: 0.4ms | Allocations: 616)
+
+
+Started POST "/login" for ::1 at 2020-06-19 11:44:20 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 244ms (Views: 0.8ms | ActiveRecord: 11.0ms | Allocations: 4833)
+
+
+Started POST "/login" for ::1 at 2020-06-19 13:19:37 -0700
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 258ms (Views: 0.7ms | ActiveRecord: 8.6ms | Allocations: 5571)
+
+
+Started POST "/login" for ::1 at 2020-06-19 13:25:25 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 297ms (Views: 0.3ms | ActiveRecord: 6.8ms | Allocations: 4725)
+
+
+Started POST "/login" for ::1 at 2020-06-20 05:26:39 -0700
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:8:in `login'
+Completed 202 Accepted in 290ms (Views: 0.6ms | ActiveRecord: 17.3ms | Allocations: 5619)
+
+
