@@ -55,7 +55,7 @@ class Signup extends React.Component {
   Create password:<input className="passwordInput" type="password" name="password" onChange={this.capturePassword}/><br/>
     <button type="submit">Submit</button>
     </form>
-    <button className="returnToHomepage" onClick={this.props.homepage}>Return to Homepage</button>
+    <button className="returnToHomepage" onClick={this.props.homepage}>Cancel</button>
     </div>
   );
 }

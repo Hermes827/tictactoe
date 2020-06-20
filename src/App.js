@@ -6,6 +6,7 @@ import ChooseXorO from './components/chooseXorO.js'
 import Grid from './components/grid.js'
 import Login from './components/login.js'
 import Signup from './components/signup.js'
+import WelcomePage from './components/welcomePage.js'
 
 class App extends React.Component {
 
@@ -20,18 +21,20 @@ class App extends React.Component {
       setO: false,
       clickedLogin: false,
       clickedSignup: false,
-      currentUser: {}
+      currentUser: {},
+      atWelcomePage: true
     }
     this.chooseNumberOfPlayers = this.chooseNumberOfPlayers.bind(this)
     this.chooseXorO = this.chooseXorO.bind(this)
     this.resetAll = this.resetAll.bind(this)
     this.chooseX = this.chooseX.bind(this)
     this.chooseO = this.chooseO.bind(this)
-    this.login = this.login.bind(this)
-    this.signup = this.signup.bind(this)
+    this.clickedLogin = this.clickedLogin.bind(this)
+    this.clickedSignup = this.clickedSignup.bind(this)
     this.returnToHomepage = this.returnToHomepage.bind(this)
     this.loginUser = this.loginUser.bind(this)
     this.setCurrentUser = this.setCurrentUser.bind(this)
+    // this.renderWelcomePage = this.renderWelcomePage.bind(this)
   }
 
 
@@ -119,14 +122,64 @@ class App extends React.Component {
     })
   }
 
-  login(){
+  // login(){
+  //   this.setState({
+  //     clickedLogin: true,
+  //     hasChosenMode: true
+  //   })
+  // }
+
+  // renderLogin(){
+  //   if(this.state.clickedLogin === true){
+  //     return(
+  //       <Login homepage={this.returnToHomepage}
+  //              loginUser={this.loginUser}
+  //         />
+  //     )
+  //   }
+  // }
+
+  // signup(){
+  //   this.setState({
+  //     clickedSignup: true,
+  //     hasChosenMode: true
+  //   })
+  // }
+
+  // renderSignup(){
+  //   if(this.state.clickedSignup === true){
+  //     return(
+  //       <Signup homepage={this.returnToHomepage}/>
+  //     )
+  //   }
+  // }
+
+  // returnToHomepage(){
+  //   this.setState({
+  //     clickedLogin: false,
+  //     clickedSignup: false,
+  //     hasChosenMode: false
+  //   })
+  // }
+
+  ///////////////////////New stuff////////////////////////////
+  renderWelcomePage(){
+    if(this.state.atWelcomePage === true){return <WelcomePage
+                                                  clickedLogin={this.clickedLogin}
+                                                  clickedSignup={this.clickedSignup}
+                                                  />}
+  }
+
+  clickedLogin(){
+    console.log("hello")
     this.setState({
       clickedLogin: true,
-      hasChosenMode: true
+      atWelcomePage: false
+      // hasChosenMode: true
     })
   }
 
-  renderLogin(){
+  renderLoginPage(){
     if(this.state.clickedLogin === true){
       return(
         <Login homepage={this.returnToHomepage}
@@ -136,14 +189,16 @@ class App extends React.Component {
     }
   }
 
-  signup(){
+  clickedSignup(){
+    console.log("hello")
     this.setState({
       clickedSignup: true,
-      hasChosenMode: true
+      atWelcomePage: false
+      // hasChosenMode: true
     })
   }
 
-  renderSignup(){
+  renderSignupPage(){
     if(this.state.clickedSignup === true){
       return(
         <Signup homepage={this.returnToHomepage}/>
@@ -155,24 +210,22 @@ class App extends React.Component {
     this.setState({
       clickedLogin: false,
       clickedSignup: false,
-      hasChosenMode: false
+      atWelcomePage: true
     })
   }
+
+
+
+  /////////////////////////////////////////////////////////////
 
   render(){
   return (
     <div className="App">
-      {this.renderGrid()}
     <div className="mainDiv">
-    <div className="signinDiv">
-    <button className="login" onClick={this.login}>Log in</button>
-    <button className="signup" onClick={this.signup}>Sign up</button>
-    </div>
     <div className="innerDiv">
-      {this.renderChoosePlayers()}
-      {this.renderChooseXorO()}
-      {this.renderLogin()}
-      {this.renderSignup()}
+    {this.renderWelcomePage()}
+    {this.renderLoginPage()}
+    {this.renderSignupPage()}
     </div>
     </div>
     </div>
@@ -181,3 +234,11 @@ class App extends React.Component {
 }
 
 export default App;
+
+//////////////////temporary///////////////////////
+
+// {this.renderChoosePlayers()}
+// {this.renderChooseXorO()}
+// {this.renderLogin()}
+// {this.renderSignup()}
+// {this.renderGrid()}
