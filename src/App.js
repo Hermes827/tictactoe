@@ -60,20 +60,6 @@ class App extends React.Component {
     console.log(localStorage.token)
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   renderChoosePlayers(){
     if(this.state.hasChosenMode === false){
       return <ChoosePlayers choose={this.chooseNumberOfPlayers}/>
