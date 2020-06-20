@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def create
-    @user = User.create(email: params[:email], password: params[:password])
+    @user = User.create(email: params[:email], username: params[:username], password: params[:password])
     # this worked when I wrote it out like this instead of using "user_params", but why?
     # it wasnt working because I need the params in user_params to be run through the serializer first
     if @user.valid?

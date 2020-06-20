@@ -38,30 +38,30 @@ class App extends React.Component {
   }
 
 
-  loginUser(user){
-    fetch("http://localhost:3001/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify({
-        email: user.email,
-        password: user.password
-      })
-    })
-    .then(res => res.json())
-    .then(data => {
-      this.setCurrentUser(data)
-    })
-  }
+  // loginUser(user){
+  //   fetch("http://localhost:3001/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       email: user.email,
+  //       password: user.password
+  //     })
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     this.setCurrentUser(data)
+  //   })
+  // }
 
-  setCurrentUser(data){
-    this.setState({
-      currentUser: data.user
-    })
-    if(data.jwt){localStorage.token = data.jwt}
-    console.log(localStorage.token)
-  }
+  // setCurrentUser(data){
+  //   this.setState({
+  //     currentUser: data.user
+  //   })
+  //   if(data.jwt){localStorage.token = data.jwt}
+  //   console.log(localStorage.token)
+  // }
 
   renderChoosePlayers(){
     if(this.state.hasChosenMode === false){
@@ -187,6 +187,32 @@ class App extends React.Component {
           />
       )
     }
+  }
+
+  loginUser(user){
+    fetch("http://localhost:3001/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        email: user.email,
+        password: user.password
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.setCurrentUser(data)
+    })
+  }
+
+  setCurrentUser(data){
+    this.setState({
+      currentUser: data.user
+    })
+    if(data.jwt){localStorage.token = data.jwt}
+    console.log(data)
+    console.log(this.state.currentUser)
   }
 
   clickedSignup(){

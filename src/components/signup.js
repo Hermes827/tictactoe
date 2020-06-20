@@ -7,16 +7,24 @@ class Signup extends React.Component {
 
     this.state = {
       email: "",
+      username: "",
       password: ""
     }
     this.captureEmail = this.captureEmail.bind(this)
     this.capturePassword = this.capturePassword.bind(this)
     this.createUser = this.createUser.bind(this)
+    this.createUsername = this.createUsername.bind(this)
   }
 
   captureEmail(e){
     this.setState({
       email: e.target.value
+    })
+  }
+
+  createUsername(e){
+    this.setState({
+      username: e.target.value
     })
   }
 
@@ -37,12 +45,14 @@ class Signup extends React.Component {
       },
       body: JSON.stringify({
         email: this.state.email,
+        username: this.state.username,
         password: this.state.password
       })
     })
     .then(res => res.json())
     .then(data => {
       console.log(data)
+      this.props.homepage()
     })
   }
 
@@ -52,6 +62,7 @@ class Signup extends React.Component {
     <form className="loginForm" onSubmit={this.createUser}>
     <h1>Sign up</h1>
     Email: <input className="passwordInput" onChange={this.captureEmail} type="text" name="email"/><br/>
+  Create Username:<input className="passwordInput" type="text" name="username" onChange={this.createUsername}/><br/>
   Create password:<input className="passwordInput" type="password" name="password" onChange={this.capturePassword}/><br/>
     <button type="submit">Submit</button>
     </form>

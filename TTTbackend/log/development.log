@@ -2751,3 +2751,244 @@ Processing by AuthController#login as */*
 Completed 202 Accepted in 290ms (Views: 0.6ms | ActiveRecord: 17.3ms | Allocations: 5619)
 
 
+Started POST "/login" for ::1 at 2020-06-20 06:36:08 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 338ms (Views: 0.8ms | ActiveRecord: 14.9ms | Allocations: 5516)
+
+
+Started POST "/signup" for ::1 at 2020-06-20 06:38:09 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (7.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$1WsOGaK/Vfe5vZERKhuaBe.7BZ11tr.39aGSJOJ9PdYHNt5lH/ydS"], ["created_at", "2020-06-20 13:38:09.694168"], ["updated_at", "2020-06-20 13:38:09.694168"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 316ms (Views: 0.4ms | ActiveRecord: 11.0ms | Allocations: 2777)
+
+
+Started POST "/signup" for ::1 at 2020-06-20 06:40:20 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$GKZZHYcEphWr7p3NBRA1AenA3lNAkaOIDOUp5yOFJF29b9orILeWy"], ["created_at", "2020-06-20 13:40:20.911868"], ["updated_at", "2020-06-20 13:40:20.911868"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 232ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2539)
+
+
+Started POST "/signup" for ::1 at 2020-06-20 06:41:32 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$ddDRU9PFb4JqsEJPW9TXVOciyI8XV5nVi8DLpOoc71.dBLJAHoXJa"], ["created_at", "2020-06-20 13:41:33.016613"], ["updated_at", "2020-06-20 13:41:33.016613"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 235ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2539)
+
+
+Started POST "/signup" for ::1 at 2020-06-20 06:42:11 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$tFUm1IxId6wc3MHbUDwGEet9jrA0rlcqW94HGVuvwsVwCPIsCl8ea"], ["created_at", "2020-06-20 13:42:12.234547"], ["updated_at", "2020-06-20 13:42:12.234547"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 240ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2539)
+
+
+Started POST "/signup" for ::1 at 2020-06-20 06:42:35 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$RVw4jzOZmpDxDDPx9HsVXu08fRpO0KyC36aFowgcAmUWQb5QlIn.q"], ["created_at", "2020-06-20 13:42:35.524724"], ["updated_at", "2020-06-20 13:42:35.524724"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 243ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 2526)
+
+
+Started POST "/signup" for ::1 at 2020-06-20 06:42:39 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$.oFlECZ8.3QzDUFw2Sdvj.yQaZt01me1BLC0EyyKdVebQlSNWMTOW"], ["created_at", "2020-06-20 13:42:39.605905"], ["updated_at", "2020-06-20 13:42:39.605905"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 242ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 2524)
+
+
+Started POST "/signup" for ::1 at 2020-06-20 06:42:54 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$.sA1ZrBpuFGccjRU2YMFXOEhe0y7VYulpZf4.XcjMW.R7MTEqUMnq"], ["created_at", "2020-06-20 13:42:54.248146"], ["updated_at", "2020-06-20 13:42:54.248146"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 240ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2521)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (231.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_development"[0m
+  [1m[35m (219.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_test"[0m
+  [1m[35m (528.5ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_development" ENCODING = 'unicode'[0m
+  [1m[35m (447.5ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_test" ENCODING = 'unicode'[0m
+  [1m[35m (23.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200618141851)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200618141851"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-20 13:44:53.466262"], ["updated_at", "2020-06-20 13:44:53.466262"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/signup" for ::1 at 2020-06-20 06:45:34 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "chris"], ["password_digest", "$2a$12$Jj0fm5876TysqBI4RWrIZuaiujfRFWPFpgRHxWx0JMsNAZEQC6REu"], ["created_at", "2020-06-20 13:45:35.078562"], ["updated_at", "2020-06-20 13:45:35.078562"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 228ms (Views: 0.4ms | ActiveRecord: 9.5ms | Allocations: 6037)
+
+
+Started POST "/login" for ::1 at 2020-06-20 06:45:41 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 238ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1395)
+
+
+Started POST "/login" for ::1 at 2020-06-20 06:48:08 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 238ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 898)
+
+
+Started POST "/login" for ::1 at 2020-06-20 06:50:27 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 229ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 898)
+
+
+Started POST "/login" for ::1 at 2020-06-20 06:51:10 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 232ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 898)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Username (20200620135510)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200620135510"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (221.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_development"[0m
+  [1m[35m (230.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_test"[0m
+  [1m[35m (384.4ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_development" ENCODING = 'unicode'[0m
+  [1m[35m (404.6ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200618141851)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200618141851"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Username (20200620135510)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mALTER TABLE "users" ADD "username" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200620135510"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (13.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-20 13:59:13.925552"], ["updated_at", "2020-06-20 13:59:13.925552"]]
+  [1m[35m (73.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "hh"], ["password_digest", "$2a$12$NHw9HDQsaXHmu.JQ0bVDYe5DVSGelUwmMUG77v7f.ViqTGChkl2vy"], ["created_at", "2020-06-20 14:00:46.401542"], ["updated_at", "2020-06-20 14:00:46.401542"], ["username", "chris"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/signup" for ::1 at 2020-06-20 07:04:53 -0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"cool@hotmail.com", "username"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"cool@hotmail.com", "username"=>"chris"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "cool@hotmail.com"], ["password_digest", "$2a$12$koveOq0Qj6VRTpIfPEhmMugzaVnRwHKs8qI9cor/JUIK2CQ9KNUIi"], ["created_at", "2020-06-20 14:04:53.710202"], ["updated_at", "2020-06-20 14:04:53.710202"], ["username", "chris"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 369ms (Views: 0.7ms | ActiveRecord: 9.8ms | Allocations: 6711)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:05:18 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1155)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:05:36 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool@hotmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool@hotmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool@hotmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 233ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 929)
+
+
