@@ -2992,3 +2992,493 @@ Processing by AuthController#login as */*
 Completed 202 Accepted in 233ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 929)
 
 
+Started POST "/login" for ::1 at 2020-06-20 07:17:35 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 751)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:18:13 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 671)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:19:12 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:19:43 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 655)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (7867.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_development"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (222.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_development"[0m
+  [1m[35m (214.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TTTbackend_test"[0m
+  [1m[35m (427.4ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_development" ENCODING = 'unicode'[0m
+  [1m[35m (308.9ms)[0m  [1m[35mCREATE DATABASE "TTTbackend_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8003688665541646980)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200618141851)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200618141851"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Username (20200620135510)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "username" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200620135510"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-20 14:20:42.467441"], ["updated_at", "2020-06-20 14:20:42.467441"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8003688665541646980)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for ::1 at 2020-06-20 07:21:06 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"cool", "username"=>"chris", "password"=>"[FILTERED]", "user"=>{"email"=>"cool", "username"=>"chris"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "cool"], ["password_digest", "$2a$12$t7l0skcm/4bsTgeHV7eQnutl.DciiuwsoGEr.qqX8nqKdJP7K3iR."], ["created_at", "2020-06-20 14:21:07.274454"], ["updated_at", "2020-06-20 14:21:07.274454"], ["username", "chris"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+Completed 201 Created in 233ms (Views: 0.4ms | ActiveRecord: 9.4ms | Allocations: 6711)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:21:15 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 242ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 1413)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:21:37 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 243ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 915)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:21:56 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 236ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 915)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:24:04 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"jkhu", "password"=>"[FILTERED]", "auth"=>{"email"=>"jkhu", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jkhu"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 671)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:26:22 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"dfgsgdfas", "password"=>"[FILTERED]", "auth"=>{"email"=>"dfgsgdfas", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dfgsgdfas"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:28:04 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chrikjbkjhs", "password"=>"[FILTERED]", "auth"=>{"email"=>"chrikjbkjhs", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chrikjbkjhs"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:28:24 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chkjhkjris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chkjhkjris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chkjhkjris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:29:25 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chrisjbkjb", "password"=>"[FILTERED]", "auth"=>{"email"=>"chrisjbkjb", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chrisjbkjb"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:30:03 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chrismnbhmg", "password"=>"[FILTERED]", "auth"=>{"email"=>"chrismnbhmg", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chrismnbhmg"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:30:31 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"kjhkj", "password"=>"[FILTERED]", "auth"=>{"email"=>"kjhkj", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kjhkj"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:30:40 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 235ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:32:03 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:32:09 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 234ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:37:42 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 227ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:39:03 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:39:08 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 232ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 902)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:40:21 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 229ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:41:14 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 235ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:50:27 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 233ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 985)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:51:14 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 236ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:52:13 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 221ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:53:19 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 243ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:54:09 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 236ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 07:55:28 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 234ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:01:57 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 231ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 985)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:03:32 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 225ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 903)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:04:47 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 231ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:04:51 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 231ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:05:03 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:05:08 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 236ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:09:32 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 222ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:10:29 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 238ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 900)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:12:33 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 232ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:13:33 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 228ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:15:42 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 235ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 900)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:18:13 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 243ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:19:22 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"chris", "password"=>"[FILTERED]", "auth"=>{"email"=>"chris", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chris"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 655)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:19:49 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 241ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:35:43 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 236ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 985)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:36:51 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 233ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 900)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:38:05 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 236ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:39:59 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 227ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:40:46 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 225ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 900)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:42:36 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 220ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:47:04 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 258ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 900)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:49:08 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 224ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 900)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:49:49 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 237ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:50:50 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 235ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:51:31 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 223ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:52:45 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 224ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+
+Started POST "/login" for ::1 at 2020-06-20 08:53:25 -0700
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"cool", "password"=>"[FILTERED]", "auth"=>{"email"=>"cool", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cool"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `login'
+Completed 202 Accepted in 232ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 899)
+
+

@@ -62,8 +62,8 @@ class Signup extends React.Component {
     <form className="loginForm" onSubmit={this.createUser}>
     <h1>Sign up</h1>
     Email: <input className="passwordInput" onChange={this.captureEmail} type="text" name="email"/><br/>
-  Create Username:<input className="passwordInput" type="text" name="username" onChange={this.createUsername}/><br/>
-  Create password:<input className="passwordInput" type="password" name="password" onChange={this.capturePassword}/><br/>
+    Create Username:<input className="passwordInput" type="text" name="username" onChange={this.createUsername}/><br/>
+    Create password:<input className="passwordInput" type="password" name="password" onChange={this.capturePassword}/><br/>
     <button type="submit">Submit</button>
     </form>
     <button className="returnToHomepage" onClick={this.props.homepage}>Cancel</button>

@@ -7,6 +7,7 @@ import Grid from './components/grid.js'
 import Login from './components/login.js'
 import Signup from './components/signup.js'
 import WelcomePage from './components/welcomePage.js'
+import UserHomePage from './components/userHomepage.js'
 
 class App extends React.Component {
 
@@ -34,6 +35,7 @@ class App extends React.Component {
     this.returnToHomepage = this.returnToHomepage.bind(this)
     this.loginUser = this.loginUser.bind(this)
     this.setCurrentUser = this.setCurrentUser.bind(this)
+    this.logoutUser = this.logoutUser.bind(this)
     // this.renderWelcomePage = this.renderWelcomePage.bind(this)
   }
 
@@ -202,8 +204,21 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(data => {
+      if(data.error){
+        alert("wrong login information")
+      } else {
       this.setCurrentUser(data)
+    }
     })
+  }
+
+  logoutUser(){
+    this.setState({
+    currentUser: {}
+  })
+  delete localStorage.token
+  this.returnToHomepage()
+  console.log(this.state.currentUser)
   }
 
   setCurrentUser(data){
@@ -211,12 +226,25 @@ class App extends React.Component {
       currentUser: data.user
     })
     if(data.jwt){localStorage.token = data.jwt}
-    console.log(data)
-    console.log(this.state.currentUser)
   }
 
+  renderUserPage(){
+    if(this.state.currentUser.username){
+      return <UserHomePage user={this.state.currentUser} logout={this.logoutUser}/>
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.clickedLogin === true){
+      this.setState({
+        clickedLogin: false
+      })
+    }
+  }
+  //have to have both "prevProps, prevState" in the args otherwise if you just have one
+  //then it just gives an empty object
+
   clickedSignup(){
-    console.log("hello")
     this.setState({
       clickedSignup: true,
       atWelcomePage: false
@@ -252,6 +280,7 @@ class App extends React.Component {
     {this.renderWelcomePage()}
     {this.renderLoginPage()}
     {this.renderSignupPage()}
+    {this.renderUserPage()}
     </div>
     </div>
     </div>
