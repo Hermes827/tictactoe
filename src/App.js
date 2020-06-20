@@ -36,6 +36,7 @@ class App extends React.Component {
     this.loginUser = this.loginUser.bind(this)
     this.setCurrentUser = this.setCurrentUser.bind(this)
     this.logoutUser = this.logoutUser.bind(this)
+    this.deleteUser = this.deleteUser.bind(this)
     // this.renderWelcomePage = this.renderWelcomePage.bind(this)
   }
 
@@ -186,6 +187,7 @@ class App extends React.Component {
       return(
         <Login homepage={this.returnToHomepage}
                loginUser={this.loginUser}
+
           />
       )
     }
@@ -230,7 +232,11 @@ class App extends React.Component {
 
   renderUserPage(){
     if(this.state.currentUser.username){
-      return <UserHomePage user={this.state.currentUser} logout={this.logoutUser}/>
+      return <UserHomePage
+              user={this.state.currentUser}
+              logout={this.logoutUser}
+              delete={()=>this.deleteUser(this.state.currentUser)}
+              />
     }
   }
 
@@ -268,6 +274,19 @@ class App extends React.Component {
     })
   }
 
+  deleteUser(user){
+    console.log(user)
+    fetch("http://localhost:3001/users" + `/${user.id}`, {
+      method: "GET",
+      headers: {
+        'Authorization': "Bearer " + localStorage.token
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+     console.log(data)
+    })
+  }
 
 
   /////////////////////////////////////////////////////////////

@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.create(email: params[:email], username: params[:username], password: params[:password])
     # this worked when I wrote it out like this instead of using "user_params", but why?
@@ -11,9 +19,14 @@ class UsersController < ApplicationController
   end
   end
 
-  def profile
-    render json: {user: current_user}, status: :accepted
+  # def profile
+  #   render json: {user: current_user}, status: :accepted
+  # end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
   end
+
 end
 
 # render json: {error: 'failed to create user'}, status: :not_acceptable

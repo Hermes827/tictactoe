@@ -237,3 +237,23 @@
 .returnToHomepage {
   margin-top: 1em;
 }
+
+.userDash {
+  color: black;
+  margin: 0 auto;
+  margin-top: 0.25em;
+  width: 97%;
+  height: 3em;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  background-color: orange;
+}
+
+.userDashBTN {
+  margin: 0.25em 3em;
+  width: 7em;
+  height: 3em;
+  border-radius: 1em;
+}
