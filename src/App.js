@@ -66,11 +66,11 @@ class App extends React.Component {
   //   console.log(localStorage.token)
   // }
 
-  renderChoosePlayers(){
-    if(this.state.hasChosenMode === false){
-      return <ChoosePlayers choose={this.chooseNumberOfPlayers}/>
-    }
-  }
+  // renderChoosePlayers(){
+  //   if(this.state.hasChosenMode === false){
+  //     return <ChoosePlayers choose={this.chooseNumberOfPlayers}/>
+  //   }
+  // }
 
   chooseNumberOfPlayers(){
     this.setState({
@@ -220,7 +220,6 @@ class App extends React.Component {
   })
   delete localStorage.token
   this.returnToHomepage()
-  console.log(this.state.currentUser)
   }
 
   setCurrentUser(data){
@@ -233,6 +232,7 @@ class App extends React.Component {
   renderUserPage(){
     if(this.state.currentUser.username){
       return <UserHomePage
+
               user={this.state.currentUser}
               logout={this.logoutUser}
               delete={()=>this.deleteUser(this.state.currentUser)}
@@ -275,19 +275,14 @@ class App extends React.Component {
   }
 
   deleteUser(user){
-    console.log(user)
     fetch("http://localhost:3001/users" + `/${user.id}`, {
-      method: "GET",
+      method: "DELETE",
       headers: {
         'Authorization': "Bearer " + localStorage.token
       }
     })
-    .then(res => res.json())
-    .then(data => {
-     console.log(data)
-    })
-  }
-
+    .then(()=> this.logoutUser())
+   }
 
   /////////////////////////////////////////////////////////////
 

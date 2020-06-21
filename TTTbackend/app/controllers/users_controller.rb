@@ -2,10 +2,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    render json: @users, status: :ok
   end
+
+  # def index
+  #    @records = Record.all
+  #    render json: @records, status: :ok
+  #  end
 
   def show
     @user = User.find(params[:id])
+    render json: @user, status: :ok
   end
 
   def create
@@ -24,7 +31,7 @@ class UsersController < ApplicationController
   # end
 
   def destroy
-    @user = User.find_by(id: params[:id])
+    current_user.delete
   end
 
 end
