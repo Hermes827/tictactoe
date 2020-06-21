@@ -1,5 +1,6 @@
 import React from 'react';
 import Settings from './settings.js'
+import ChooseXorO from './chooseXorO.js'
 
 class UserHomePage extends React.Component {
 
@@ -34,7 +35,12 @@ class UserHomePage extends React.Component {
     if(this.state.hasClickedSettings === true){
       return <Settings delete={this.props.delete} toggle={this.toggleSettings}/>
     } else {
-      return <h1>Welcome {this.props.user.username}</h1>
+      return(
+        <div>
+          <h1>Welcome {this.props.user.username}</h1>
+          <ChooseXorO/>
+        </div>
+      )
     }
   }
 
