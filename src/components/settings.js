@@ -1,23 +1,45 @@
 import React from 'react';
+import DeleteAccount from './deleteAccount.js'
 
 class Settings extends React.Component {
 
   constructor(){
     super()
 
+    this.state = {
+      hasClicked: false
+    }
+
+    this.confirmDelete = this.confirmDelete.bind(this)
+    // this.renderDeletePage = this.renderDeletePage.bind(this)
   }
 
   confirmDelete(){
-    // this.props.delete
-    console.log("are you sure you wnat to delete your account?")
+    if(this.state.hasClicked){
+      this.setState({hasClicked:false})
+    } else {
+      this.setState({hasClicked:true})
+    }
+  }
+
+  renderDeletePage(){
+    if(this.state.hasClicked === true){
+      return <DeleteAccount toggle={this.confirmDelete} delete={this.props.delete}/>
+    } else {
+      return(
+        <div>
+        <button onClick={this.confirmDelete}>Delete Account</button>
+        <button onClick={this.props.toggle}>return to user page</button>
+        </div>
+      )
+    }
   }
 
   render(){
   return (
     <div>
-    <h1>hi</h1>
-    <button onClick={this.props.delete}>Delete Account</button>
-    settings
+    <h1>settings</h1>
+    {this.renderDeletePage()}
     </div>
   );
 }

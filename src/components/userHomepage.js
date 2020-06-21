@@ -12,15 +12,27 @@ class UserHomePage extends React.Component {
     this.toggleSettings = this.toggleSettings.bind(this)
   }
 
+  // toggleSettings(){
+  //   this.setState({
+  //     hasClickedSettings: true
+  //   })
+  // }
+
   toggleSettings(){
+    if(this.state.hasClickedSettings){
+      this.setState({
+      hasClickedSettings: false
+    })
+  } else {
     this.setState({
       hasClickedSettings: true
     })
   }
+  }
 
   renderSettingsPanel(){
     if(this.state.hasClickedSettings === true){
-      return <Settings delete={this.props.delete}/>
+      return <Settings delete={this.props.delete} toggle={this.toggleSettings}/>
     } else {
       return <h1>Welcome {this.props.user.username}</h1>
     }
@@ -34,7 +46,7 @@ class UserHomePage extends React.Component {
     <button className="userDashBTN" onClick={this.toggleSettings}>Settings</button>
     <button className="userDashBTN" onClick={this.props.logout}>Log out</button>
     </div>
-    <div className="choosePlayers">
+    <div className="">
     {this.renderSettingsPanel()}
     </div>
     </div>
